@@ -2,12 +2,15 @@ var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
 
 let SongSchema = new Schema({
-    submittedBy:{type:String,require:true},
-    submittedOn:{type:String,require:true},
-    avgRating:{type:String,require:true},
-    ratingForObject:{type:String,require:true},
-    description:{type:String,require:true},
-    numRating:{type:Number}
+    songTitle:{type:String,require:true},
+    artist:{type:String,require:true},
+    album:{type:String,require:true},
+    year:{type:String,require:true},
+    comment:{type:String,require:true},
+    genre:{type:String,require:true},
+    avgRating:{type:Number},
+    numReviews:{type:Number},
+    numRating:{type:Number},
 })
 
 const Song = mongoose.model('song',SongSchema);

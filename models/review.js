@@ -1,16 +1,13 @@
 var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
-
+const Song = require('./song');
 let ReviewSchema = new Schema({
-    songTitle:{type:String,require:true},
-    artist:{type:String,require:true},
-    album:{type:String,require:true},
-    year:{type:String,require:true},
-    comment:{type:String,require:true},
-    genre:{type:String,require:true},
-    avgRating:{type:Number},
-    numReviews:{type:Number},
-    numRating:{type:Number},
+    submittedBy: [{ type: Schema.Types.ObjectId, ref: 'song' }],
+    submittedOn:{type:String,require:true},
+    avgRating:{type:String,require:true},
+    ratingForObject:{type:String,require:true},
+    description:{type:String,require:true},
+    numRating:{type:Number}
 })
 
 const Review = mongoose.model('review',ReviewSchema);
