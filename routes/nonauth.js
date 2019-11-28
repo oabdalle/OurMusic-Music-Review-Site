@@ -5,7 +5,7 @@ const Review = require('../models/review');
 
 router.route('/songs').get(async(req, res) => {
         try{
-            const songs = await Song.find({}).sort({'numRating': 1})
+            const songs = await Song.find({}).sort({'numRating': -1})
             res.json(songs);
         } catch(e) {
           console.log('error:-', e)
