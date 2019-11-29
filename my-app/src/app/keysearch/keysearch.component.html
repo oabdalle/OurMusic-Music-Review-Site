@@ -1,10 +1,38 @@
-<!-- <form #songForm = "ngForm" (ngSubmit) ="onSubmit(songForm)">
+ <form #songForm='ngForm' (ngSubmit) ="submitSearch($event, songForm)">
         <div>
-        <input type ="text" name="songTitle"placeholder="Enter Song title">
+        <input id="searchTxt" type ="text" name="songTitle"placeholder="Enter Song title" [(ngModel)] ='song' >
         </div>
         <div>
             <button type ="submit" >Finished</button>
         </div>
-    </form>
+</form>
 
-    <button onclick >Search</button> -->
+<div>
+        <table>
+        <thead>
+            <tr>
+            <th>SongTitle</th>
+            <th>artist</th>
+            <th>album</th>
+            <th>year</th>
+            <th>comment</th>
+            <th>genre</th>
+            <th>avgRating</th>
+            <th>numReviews</th>
+            <th>numRating</th>
+            </tr>
+             <tr *ngFor="let bk of songs">
+            <td>{{bk.songTitle}}</td>
+            <td>{{bk.artist}}</td>
+            <td>{{bk.album}} </td>
+            <td>{{bk.year}}</td>
+            <td>{{bk.comment}}</td>
+            <td>{{bk.genre}}</td>
+            <td>{{bk.avgRating}} </td>
+            <td>{{bk.numReviews}}</td>
+            <td>{{bk.numRating}}</td>
+            </tr> 
+        </thead>
+        </table>    
+        </div>
+    <!-- <button onclick >Search</button> --> 

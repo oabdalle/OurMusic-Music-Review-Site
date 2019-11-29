@@ -5,6 +5,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class SongService {
+  queryUrl: string;
   readonly gUrl = 'http://localhost:8080/api/open/songs';
   readonly bUrl = 'http://localhost:8080/api/open/search';
   constructor(private http: HttpClient) { }
@@ -12,6 +13,6 @@ export class SongService {
     return this.http.get(this.gUrl);
   }
    getSearch(){
-       return this.http.get(this.bUrl)
+       return this.http.get(this.bUrl + this.queryUrl);
    }
 }
