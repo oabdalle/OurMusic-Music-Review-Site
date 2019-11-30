@@ -28,15 +28,17 @@ export class KeysearchComponent implements OnInit {
   //      })
   // }
 
-  submitSearch(event,formData){
+  submitSearchUnique(event,formData){
+    console.log(formData.value.songTitle);
+    //console.log(event);
    this.songservice.queryUrl = "?songTitle=" + formData.value.songTitle;
    this.songservice.getSearch().subscribe((data: Song[])=>{
            this.songs = data;
-           console.log(this.songs.values);
+           //console.log(this.songs);
     })
   }
   submitSearchTwo(event,formData){
-    console.log(event);
+  
     console.log(formData.value);
     console.log(formData)
  

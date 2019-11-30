@@ -1,0 +1,52 @@
+<form #song4Form='ngForm' (ngSubmit) ="submitSearchUnique($event, song4Form)">
+        <div>
+        <input type ="text" name="songTitle"placeholder="Enter Songtitle"  [(ngModel)] ='song' >
+        </div>
+        <div>
+            <button type ="submit" >Finished</button>
+        </div>
+</form>
+<table>
+        <thead>
+            <tr>
+            <th>SongTitle</th>
+            </tr>
+             <tr *ngFor="let bk of songs">
+            <td>{{bk.songTitle}}</td>
+            <button (click)="findReviews(bk._id)"> Make reviews </button>
+            <div class="top">
+                    <div [innerHtml]="myData"></div>
+            </div>
+            </tr>
+            </thead>
+</table>
+<
+<div>
+        <form #creviewForm = "ngForm" (ngSubmit) ="onSubmit(creviewForm)">
+         
+            <div>
+            <input type ="text" name="songReviewed" ngModel  placeholder="Enter songReviewed">
+            </div>
+            <div>
+                <input type ="text" name="submittedBy" ngModel placeholder="Enter submittedBy">
+            </div>
+            <div>
+                <input type ="text" name="submittedOn" ngModel placeholder="Enter submittedOn ">
+            </div>
+            <div>
+                 <input type ="text" name="avgRating" ngModel placeholder="Enter avgRating">
+            </div>
+            <div>
+                <input type ="text" name="ratingForObject" ngModel placeholder="Enter ratingForObject">
+            </div>
+            <div>
+                <input type ="text" name="description" ngModel placeholder="Enter description ">
+            </div>
+            <div>
+                <input type ="text" name="numRating" ngModel placeholder="Enter numRating">
+            </div>
+            <div>
+                <button type ="submit" >Create</button>
+            </div>
+        </form>
+<div> 

@@ -15,6 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SpecialComponent } from './special/special.component';
 import { AuthGuard } from './auth.guard';
+import { RgeneratorComponent } from './rgenerator/rgenerator.component';
+// import { RgeneratorComponent } from './rgenerator/rgenerator.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,9 @@ import { AuthGuard } from './auth.guard';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    SpecialComponent
+    SpecialComponent,
+    RgeneratorComponent,
+    // RgeneratorComponent
   ],
   imports: [
     BrowserModule,

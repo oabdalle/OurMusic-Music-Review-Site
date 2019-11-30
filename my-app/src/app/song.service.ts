@@ -1,6 +1,6 @@
 import {ErrorHandler, Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {User} from './song.model';
+import {User, Review} from './song.model';
 import { HttpInterceptor, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -15,6 +15,8 @@ export class SongService {
   myTest: any;
   users:User[];
   selectedUser:User|{}={}; 
+  reviews: Review[];
+  selectedReview: Review|{}={}; 
   queryUrl: string;
   reviewUrl: string;
   readonly gUrl = 'http://localhost:8080/api/open/songs';
@@ -42,6 +44,9 @@ export class SongService {
    getReviews(){
     return this.http.get(this.rUrl + this.reviewUrl);
    }
+   postReview(rv:Review){
+     return this.http.post(this.rUrl + this.reviewUrl, rv);
+    }
   //  postBook(bk:Book){
   //   return this._htpp.post(this.bUrl, bk)
   //   }

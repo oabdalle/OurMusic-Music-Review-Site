@@ -113,9 +113,9 @@ router.route('/review/:song_id').post(function(req, res) {
         review.ratingForObject = req.body.ratingForObject;
         review.description= req.body.description;
         review.numRating = req.body.numRating;
-       review.save(function(err) {
-            if (err)
-                res.send(err);
+       review.save(function(err2) {
+            if (err2)
+                res.send(err2);
 
             res.json({ message: 'Review Created!' });
         })

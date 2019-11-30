@@ -7,6 +7,7 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {SpecialComponent} from './special/special.component'
 import {AuthGuard} from './auth.guard';
+import {RgeneratorComponent} from './rgenerator/rgenerator.component'
 const routes: Routes = [
   {path: 'songlist', component:SonglistComponent},
   {path: 'keysearch', component: KeysearchComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'special', component: SpecialComponent, canActivate: [AuthGuard]},
+  {path: 'createreview', component: RgeneratorComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

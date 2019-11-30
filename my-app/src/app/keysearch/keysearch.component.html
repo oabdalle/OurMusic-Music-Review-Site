@@ -1,6 +1,6 @@
- <form #songForm='ngForm' (ngSubmit) ="submitSearch($event, songForm)">
+<form #song3Form='ngForm' (ngSubmit) ="submitSearchUnique($event, song3Form)">
         <div>
-        <input id="searchTxt" type ="text" name="songTitle"placeholder="Enter Song title" [(ngModel)] ='song' >
+        <input type ="text" name="songTitle"placeholder="Enter Songtitle"  [(ngModel)] ='song' >
         </div>
         <div>
             <button type ="submit" >Finished</button>
@@ -118,3 +118,4 @@
                 </thead>
             </table>    
     </div>
+    
