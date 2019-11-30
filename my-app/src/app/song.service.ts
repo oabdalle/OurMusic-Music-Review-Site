@@ -16,10 +16,12 @@ export class SongService {
   users:User[];
   selectedUser:User|{}={}; 
   queryUrl: string;
+  reviewUrl: string;
   readonly gUrl = 'http://localhost:8080/api/open/songs';
   readonly bUrl = 'http://localhost:8080/api/open/search';
   readonly pUrl = 'http://localhost:8080/api/user/login';
   readonly qUrl = 'http://localhost:8080/api/user/register';
+  readonly rUrl = 'http://localhost:8080/api/open/review';
   constructor(private http: HttpClient, private router: Router) { }
   getSongs(){
     return this.http.get(this.gUrl);
@@ -36,6 +38,9 @@ export class SongService {
 
    loggedIn(){
      return !!localStorage.getItem('token');
+   }
+   getReviews(){
+    return this.http.get(this.rUrl + this.reviewUrl);
    }
   //  postBook(bk:Book){
   //   return this._htpp.post(this.bUrl, bk)

@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import {SongService} from '../song.service';
-import {Song} from '../song.model';
+import {Song, Review} from '../song.model';
 import {MatTableDataSource} from '@angular/material';
 import {Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
+import { SafeHtml } from '@angular/platform-browser';
 @Component({
   selector: 'app-keysearch',
   templateUrl: './keysearch.component.html',
   styleUrls: ['./keysearch.component.scss']
 })
 export class KeysearchComponent implements OnInit {
+  myData: SafeHtml;
   songs: Song[];
+  reviews: Review[];
   constructor(public songservice: SongService) {
     songservice.queryUrl = "?songTitle="
    }
@@ -26,14 +29,10 @@ export class KeysearchComponent implements OnInit {
   // }
 
   submitSearch(event,formData){
-   console.log(event);
-   console.log(formData.value);
-   console.log(formData)
-
    this.songservice.queryUrl = "?songTitle=" + formData.value.songTitle;
    this.songservice.getSearch().subscribe((data: Song[])=>{
            this.songs = data;
-           console.log(this.songs);
+           console.log(this.songs.values);
     })
   }
   submitSearchTwo(event,formData){
@@ -90,6 +89,15 @@ export class KeysearchComponent implements OnInit {
             this.songs = data;
             console.log(this.songs);
      })
+   }
+   findReviews(stringy){
+     console.log(stringy);
+     this.songservice.reviewUrl = "/"+stringy;
+     this.songservice.getReviews().subscribe((data: Review[])=>{
+      this.reviews = data;
+      console.log(this.reviews);
+    })
+
    }
   // if(formData == "artistForm"){
   //   this.songservice.queryUrl = "?artist=" + formData.value.songTitle;

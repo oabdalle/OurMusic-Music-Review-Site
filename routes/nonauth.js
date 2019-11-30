@@ -61,7 +61,20 @@ router.get('/search', async (req,res) => {
                 }
             })
         }
-      
+        if(typeof req.query.genre != 'undefined'){
+            songs.filter(function(song){
+                if(song.genre.toString() == req.query.genre){
+                response.push(song);
+                }
+            })
+        }
+        if(typeof req.query.comment != 'undefined'){
+            songs.filter(function(song){
+                if(song.comment.toString() == req.query.comment){
+                response.push(song);
+                }
+            })
+        }
         // de-duplication:
         // response = _.uniqBy(response, 'id');
       
@@ -89,25 +102,63 @@ router.route('/create').post(function(req, res) {
             res.json({ message: 'Song Created!' });
         })
 });
-router.route('/review').post(function(req, res) {
+router.route('/review/:song_id').post(function(req, res) {
     console.log(req)
     var review = new Review();     
-        song.songTitle = req.body. songTitle;  
-        song.artist = req.body.artist;
-        song.album = req.body.album;
-        song.year = req.body.year;
-        song.comment= req.body.comment;
-        song.genre = req.body.genre;
-        song.avgRating = req.body.avgRating;
-        song.numReviews = req.body.numReviews;
-        song.numRating = req.body.numRating;
-        song.save(function(err) {
+    Song.findById(req.params.song_id, function(err, song) {
+        review.songReviewed = song.songTitle;
+        review.submittedBy = req.body.submittedBy;  
+        review.submittedOn = req.body.submittedOn;
+        review.avgRating= req.body.avgRating;
+        review.ratingForObject = req.body.ratingForObject;
+        review.description= req.body.description;
+        review.numRating = req.body.numRating;
+       review.save(function(err) {
             if (err)
                 res.send(err);
 
-            res.json({ message: 'Song Created!' });
+            res.json({ message: 'Review Created!' });
         })
+    });
 });
+router.route('/review/:song_id').get(async function(req, res) {
+    try{
+    var response = [];
+    const reviews = await Review.find({}).sort({'numRating': -1});
+    //console.log(reviews.length);
+    Song.findById(req.params.song_id, function(err, song) {
+        for(let i = 0; i < reviews.length; i++ ){
+            // console.log("Hi");
+            // console.log(reviews[i].songReviewed.toString());
+            // console.log(song.songTitle.toString());
+            if(reviews[i].songReviewed.toString() == song.songTitle.toString()){   
+               // console.log("Made it!");
+                response.push(reviews[i]);
+            }
+        }
+       // console.log(response);
+        res.json(response);
+    });
+        }catch(e) {
+        console.log('error:-', e)
+         }
+});
+
+// router.route('/review/:song_id').post(function(req, res) {
+//         Song.findById(req.params.song_id, function(err, song) {
+//                 if (err)
+//                     res.send(err);
+//                 book.quantity = req.body.quantity;  
+//                 console.log(req.body.quantity)
+//                 book.save(function(err) {
+//                     if (err)
+//                         res.send(err);
+    
+//                     res.json({ message: 'Book updated!' });
+//                 });
+    
+//             });
+//  });
 
 
 module.exports = router;

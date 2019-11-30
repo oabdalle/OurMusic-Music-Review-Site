@@ -73,9 +73,48 @@
             <td>{{bk.genre}}</td>
             <td>{{bk.avgRating}} </td>
             <td>{{bk.numReviews}}</td>
-            <td>{{bk.numRating}}</td>
-            </tr> 
+            <td>{{bk.numRating}}</td> 
+            <button (click)="findReviews(bk._id)"> Get my reviews </button>
+            <div class="top">
+                    <div [innerHtml]="myData"></div>
+            </div>
+            </tr>
+            <!-- <tr *ngFor="let bg of reviews">
+                    <td>{{bg.songReviewed}}</td>
+                    <td>{{bg.submittedBy}}</td>
+                    <td>{{bg.submittedOn}}</td>
+                    <td>{{bg.avgRating}} </td>
+                    <td>{{bg.ratingForObject}}</td>
+                    <td>{{bg.description}}</td>
+                    <td>{{bg.avgRating}} </td>
+                    <td>{{bg.numRating}}</td>
+            </tr>  
+            -->
         </thead>
         </table>    
         </div>
-    <!-- <button onclick >Search</button> --> 
+        <div>
+                <table>
+                <thead>
+                    <tr>
+                    <th>Song Reviewd</th>
+                    <th>submittedBy</th>
+                    <th>submittedOn</th>
+                    <th>ratingForObject</th>
+                    <th>description</th>
+                    <th>avgRating</th>
+                    <th>numRating</th>
+                    </tr>
+                    <tr *ngFor="let bg of reviews">
+                            <td>{{bg.songReviewed}}</td>
+                            <td>{{bg.submittedBy}}</td>
+                            <td>{{bg.submittedOn}}</td>
+                            <td>{{bg.ratingForObject}}</td>
+                            <td>{{bg.description}}</td>
+                            <td>{{bg.avgRating}} </td>
+                            <td>{{bg.numRating}}</td>
+                    </tr>  
+                   
+                </thead>
+            </table>    
+    </div>

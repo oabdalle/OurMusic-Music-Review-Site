@@ -1,10 +1,9 @@
 var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
-const Song = require('./song');
+const Song = require('../models/song');
 let ReviewSchema = new Schema({
-    submittedBy: { 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'song' },
+    songReviewed: {type:String, require:true},
+    submittedBy: {type:String, require:true},
     submittedOn:{type:String,require:true},
     avgRating:{type:String,require:true},
     ratingForObject:{type:String,require:true},
