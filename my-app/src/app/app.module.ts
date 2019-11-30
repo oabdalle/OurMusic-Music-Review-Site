@@ -11,12 +11,19 @@ import { HomeComponent } from './home/home.component';
 import {SongService} from './song.service';
 import {MatToolbarModule, MatFormFieldModule, MatInputModule, MatOptionModule, MatSelectModule, MatIconModule, MatButtonModule, MatCardModule, MatTableModule, MatDividerModule, MatSnackBarModule} from '@angular/material';
 import { FormsModule }   from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { SpecialComponent } from './special/special.component';
+import { AuthGuard } from './auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
     SonglistComponent,
     KeysearchComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent,
+    SpecialComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +43,7 @@ import { FormsModule }   from '@angular/forms';
     MatSnackBarModule,
     FormsModule
   ],
-  providers: [SongService],
+  providers: [SongService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

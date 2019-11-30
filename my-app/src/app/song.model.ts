@@ -10,3 +10,8 @@ export class Song{
     numReviews: Number;
     numRating: Number;
 }
+export class User{
+    username:{String,require:true,unique:true};
+    password:{type:String,require:true};
+    email:{type:String, require:true,unique:true};
+}

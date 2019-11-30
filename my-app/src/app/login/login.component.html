@@ -1,0 +1,28 @@
+<div>
+        <form #loginForm = "ngForm" (ngSubmit) ="onSubmit(loginForm)">
+            <!--<input type ="hidden" name="_id" #_id="ngModel" [(ngModel)] = "bookService.selectedBook._id"> -->
+            <div>
+            <input type ="text" name="email" #email="ngModel" [(ngModel)] = "songService.selectedUser.email" placeholder="Enter Email ">
+            </div>
+            <div>
+                <input type ="text" name="password" #password="ngModel" [(ngModel)] = "songService.selectedUser.password" placeholder="Enter Password">
+            </div>
+            <div>
+                <button type ="submit" >Finished</button>
+            </div>
+        </form>
+<div>
+
+        <div>
+                <form #sendtoRegisterForm = "ngForm" (ngSubmit) ="newSubmit(sendtoRegisterForm)">
+                    <!--<input type ="hidden" name="_id" #_id="ngModel" [(ngModel)] = "bookService.selectedBook._id"> -->
+                    <div>
+                        <button type ="submit" >Register</button>
+                    </div>
+                </form>
+        <div>
+
+                <div class="top">
+                        <div [innerHtml]="myData"></div>
+                      </div>
+        

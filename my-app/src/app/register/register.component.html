@@ -1,0 +1,17 @@
+<div>
+        <form #registerForm = "ngForm" (ngSubmit) ="onSubmit(registerForm)">
+            <!--<input type ="hidden" name="_id" #_id="ngModel" [(ngModel)] = "bookService.selectedBook._id"> -->
+            <div>
+            <input type ="text" name="email" #email="ngModel" [(ngModel)] = "songService.selectedUser.email" placeholder="Enter Email ">
+            </div>
+            <div>
+                <input type ="text" name="password" #password="ngModel" [(ngModel)] = "songService.selectedUser.password" placeholder="Enter Password">
+            </div>
+            <div>
+                <button type ="submit" >Create</button>
+            </div>
+        </form>
+<div>
+        <div class="top">
+                <div [innerHtml]="myData"></div>
+              </div>

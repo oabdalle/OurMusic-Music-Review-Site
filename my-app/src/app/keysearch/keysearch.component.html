@@ -7,6 +7,49 @@
         </div>
 </form>
 
+<form #artistForm='ngForm' (ngSubmit) ="submitSearchTwo($event, artistForm)">
+        <div>
+        <input type ="text" name="artist"placeholder="Enter artist"  [(ngModel)] ='song' >
+        </div>
+        <div>
+            <button type ="submit" >Finished</button>
+        </div>
+</form>
+
+<form #albumForm='ngForm' (ngSubmit) ="submitSearchThree($event, albumForm)">
+        <div>
+        <input type ="text" name="album"placeholder="Enter Album"  [(ngModel)] ='song' >
+        </div>
+        <div>
+            <button type ="submit" >Finished</button>
+        </div>
+</form> 
+
+<form #yearForm='ngForm' (ngSubmit) ="submitSearchFour($event, yearForm)">
+        <div>
+        <input type ="text" name="year"placeholder="Enter year"  [(ngModel)] ='song' >
+        </div>
+        <div>
+            <button type ="submit" >Finished</button>
+        </div>
+</form> 
+<form #commentForm='ngForm' (ngSubmit) ="submitSearchFive($event, commentForm)">
+        <div>
+        <input type ="text" name="comment"placeholder="Enter comment"  [(ngModel)] ='song' >
+        </div>
+        <div>
+            <button type ="submit" >Finished</button>
+        </div>
+</form> 
+
+<form #genreForm='ngForm' (ngSubmit) ="submitSearchSix($event, genreForm)">
+        <div>
+        <input type ="text" name="genre"placeholder="Enter genre"  [(ngModel)] ='song' >
+        </div>
+        <div>
+            <button type ="submit" >Finished</button>
+        </div>
+</form> 
 <div>
         <table>
         <thead>
