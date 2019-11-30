@@ -1,6 +1,6 @@
 import {ErrorHandler, Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {User, Review} from './song.model';
+import {Song, User, Review} from './song.model';
 import { HttpInterceptor, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -17,6 +17,8 @@ export class SongService {
   selectedUser:User|{}={}; 
   reviews: Review[];
   selectedReview: Review|{}={}; 
+  song:Song[];
+  selectedSong: Song|{}={}; 
   queryUrl: string;
   reviewUrl: string;
   readonly gUrl = 'http://localhost:8080/api/open/songs';
@@ -24,6 +26,8 @@ export class SongService {
   readonly pUrl = 'http://localhost:8080/api/user/login';
   readonly qUrl = 'http://localhost:8080/api/user/register';
   readonly rUrl = 'http://localhost:8080/api/open/review';
+  readonly r2Url = 'http://localhost:8080/api/secure/review';
+  readonly r3Url = 'http://localhost:8080/api/secure/song';
   constructor(private http: HttpClient, private router: Router) { }
   getSongs(){
     return this.http.get(this.gUrl);
@@ -45,7 +49,10 @@ export class SongService {
     return this.http.get(this.rUrl + this.reviewUrl);
    }
    postReview(rv:Review){
-     return this.http.post(this.rUrl + this.reviewUrl, rv);
+     return this.http.post(this.r2Url + this.reviewUrl, rv);
+    }
+    postSong(sg:Song){
+      return this.http.post(this.r3Url, sg);
     }
   //  postBook(bk:Book){
   //   return this._htpp.post(this.bUrl, bk)
