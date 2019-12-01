@@ -11,6 +11,7 @@ let SongSchema = new Schema({
     avgRating:{type:Number},
     numReviews:{type:Number},
     numRating:{type:Number},
+    isHidden:{type: Boolean, require:true}
 })
 
 const Song = mongoose.model('song',SongSchema);

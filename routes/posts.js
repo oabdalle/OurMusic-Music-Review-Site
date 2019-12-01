@@ -35,11 +35,12 @@ router.route('/song').post(function(req, res) {
         song.avgRating = req.body.avgRating;
         song.numReviews = req.body.numReviews;
         song.numRating = req.body.numRating;
+        song.isHidden = false;
         song.save(function(err) {
             if (err)
                 res.send(err);
 
-            res.json({ message: 'Song Created!' });
+            res.json(song.id);
         })
 });
 

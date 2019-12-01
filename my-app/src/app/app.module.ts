@@ -17,6 +17,8 @@ import { SpecialComponent } from './special/special.component';
 import { AuthGuard } from './auth.guard';
 import { RgeneratorComponent } from './rgenerator/rgenerator.component';
 import { SgeneratorComponent } from './sgenerator/sgenerator.component';
+import { SrgeneratorComponent } from './srgenerator/srgenerator.component';
+import { ManagerComponent } from './manager/manager.component';
 // import { RgeneratorComponent } from './rgenerator/rgenerator.component';
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { SgeneratorComponent } from './sgenerator/sgenerator.component';
     SpecialComponent,
     RgeneratorComponent,
     SgeneratorComponent,
+    SrgeneratorComponent,
+    ManagerComponent,
     // RgeneratorComponent
   ],
   imports: [

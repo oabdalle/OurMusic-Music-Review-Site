@@ -21,7 +21,9 @@ router.post('/register', async (req, res) =>{
      const user = new User({
             username: req.body.email,
             password: hashPassword,
-            email: req.body.email
+            email: req.body.email,
+            managerialPriviliges: false,
+            isActivated: true
          });
     user.save((error, registeredUser) => {
         if(error){
@@ -29,7 +31,7 @@ router.post('/register', async (req, res) =>{
         }else{
             let payload = {subject: registeredUser.id};
             let token = jwt.sign(payload, 'secretKey')
-            res.status(200).send({token})
+            res.status(200).send({token}, registeredUser);
         }
     })
     //  try{
