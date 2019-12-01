@@ -9,6 +9,7 @@ export class Song{
     avgRating: Number;
     numReviews: Number;
     numRating: Number;
+    isHidden: Boolean;
 }
 export class User{
     username:{String,require:true,unique:true};
@@ -24,4 +25,7 @@ export class Review{
     ratingForObject:{type:String,require:true};
     description:{type:String,require:true};
     numRating:{type:Number}
+}
+export class Policy{
+    text:{type:String, required:true};
 }

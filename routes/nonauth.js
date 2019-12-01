@@ -7,6 +7,7 @@ router.route('/songs').get(async(req, res) => {
         try{
             const songs = await Song.find({}).sort({'numRating': -1})
             res.json(songs);
+            console.log(songs);
         } catch(e) {
           console.log('error:-', e)
         }
@@ -94,7 +95,7 @@ router.get('/search', async (req,res) => {
 router.route('/create').post(function(req, res) {
     console.log(req)
     var song = new Song();     
-        song.songTitle = req.body. songTitle;  
+        song.songTitle = req.body.songTitle;  
         song.artist = req.body.artist;
         song.album = req.body.album;
         song.year = req.body.year;
@@ -168,6 +169,76 @@ router.route('/user/:user_id').post(async function(req, res) {
         console.log('error:-', e)
          }
 });
+
+router.route('/deactivateuser/:user_id').post(async function(req, res) {
+    try{
+    console.log(req.params.user_id);
+    await User.findById(req.params.user_id, function(err, user) {
+     user.isActivated = false;
+     user.save(function(err2) {
+        if (err2)
+            res.send(err2);
+
+        res.json('User Updated');
+    })
+        });
+    }catch(e) {
+        console.log('error:-', e)
+         }
+});
+
+router.route('/activateuser/:user_id').post(async function(req, res) {
+    try{
+    console.log(req.params.user_id);
+    await User.findById(req.params.user_id, function(err, user) {
+     user.isActivated = true;
+     user.save(function(err2) {
+        if (err2)
+            res.send(err2);
+
+        res.json('User Updated');
+    })
+        });
+    }catch(e) {
+        console.log('error:-', e)
+         }
+});
+
+router.route('/makehidden/:song_id').post(async function(req, res) {
+    try{
+    console.log(req.params.song);
+    await Song.findById(req.params.song_id, function(err, song) {
+     song.isHidden = true;
+     song.save(function(err2) {
+        if (err2)
+            res.send(err2);
+
+        res.json('Song Updated');
+    })
+        });
+    }catch(e) {
+        console.log('error:-', e)
+         }
+});
+
+router.route('/unhidden/:song_id').post(async function(req, res) {
+    try{
+    console.log(req.params.song);
+    await Song.findById(req.params.song_id, function(err, song) {
+     song.isHidden = false;
+     song.save(function(err2) {
+        if (err2)
+            res.send(err2);
+
+        res.json('Song Updated');
+    })
+        });
+    }catch(e) {
+        console.log('error:-', e)
+         }
+});
+
+
 
 // router.route('/review/:song_id').post(function(req, res) {
 //         Song.findById(req.params.song_id, function(err, song) {

@@ -29,9 +29,9 @@ export class SonglistComponent implements OnInit {
 
   fetchSongs(){
     this.songservice.getSongs().subscribe((data: Song[])=>{
-        this.songs.data = data;
-        console.log('Data requested');
-        console.log(this.songs);
-       })
+      this.songs.data = data;
+      console.log('Data requested');
+      console.log(this.songs);
+     })
   }
 }

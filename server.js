@@ -5,6 +5,7 @@ var mongoose   = require('mongoose');
 var dotenv = require('dotenv');
 const postRoute = require('./routes/posts');
 const openRoute = require('./routes/nonauth');
+
 dotenv.config();
 const cors = require('cors')
 var port = process.env.PORT || 8080;   
@@ -24,11 +25,12 @@ app.use(cors({origin: 'http://localhost:4200'}));
 //     res.render('home');
 // });
 const authRoute = require('./routes/auth');
-
+const adminRoute = require('./routes/admin');
 
 app.use('/api/user', authRoute);
 app.use('/api/secure', postRoute);
 app.use('/api/open', openRoute);
+app.use('/api/admin', adminRoute);
 
 
 // START THE SERVER

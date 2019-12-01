@@ -1,0 +1,18 @@
+Privacy Notice
+<div class="top">
+    <div [innerHtml]="mySecondData">
+    </div>
+</div>
+Change Privacy Policy
+<form #privacyForm='ngForm' (ngSubmit) ="submitPrivacy(privacyForm)">
+    <div>
+    <input type ="text" name="text" placeholder="New Changes" ngModel >
+    </div>
+    <div>
+        <button type ="submit" >Finished</button>
+    </div>
+</form>
+<div class="top">
+    <div [innerHtml]="myThirdData">
+    </div>
+</div>

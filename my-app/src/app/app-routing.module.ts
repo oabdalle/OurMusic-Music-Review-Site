@@ -12,6 +12,8 @@ import {RgeneratorComponent} from './rgenerator/rgenerator.component';
 import {SgeneratorComponent} from './sgenerator/sgenerator.component';
 import {SrgeneratorComponent} from './srgenerator/srgenerator.component';
 import {ManagerComponent} from './manager/manager.component';
+import {SorryComponent} from './sorry/sorry.component';
+import {PrivacyComponent} from './privacy/privacy.component';
 const routes: Routes = [
   {path: 'songlist', component:SonglistComponent},
   {path: 'keysearch', component: KeysearchComponent},
@@ -23,6 +25,8 @@ const routes: Routes = [
   {path: 'createsong', component: SgeneratorComponent, canActivate: [AuthGuard]},
   {path: 'createboth', component: SrgeneratorComponent, canActivate: [AuthGuard]},
   {path: 'manager', component: ManagerComponent, canActivate: [ManagerguardGuard]},
+  {path: 'sorry', component: SorryComponent},
+  {path: 'privacypolicy', component: PrivacyComponent},
 ];
 
 @NgModule({

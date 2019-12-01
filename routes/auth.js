@@ -58,7 +58,8 @@ router.post('/register', async (req, res) =>{
             let token1 = jwt.sign(payload, 'secretKey')
             var data= {
                 token: token1,
-                user1 : user.managerialPriviliges
+                user1 : user.managerialPriviliges,
+                user2 : user.isActivated
             }
             res.status(200).json(data);
         };

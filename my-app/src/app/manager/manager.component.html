@@ -1,6 +1,6 @@
 <p>Welcome Admin!</p>
 <p>Give a user managerial privliges!</p>
-
+<p>Decide if a user should be inactive or inactive!</p>
 <form #userForm='ngForm' (ngSubmit) ="submitUserSearch(userForm)">
         <div>
         <input type ="text" name="email" placeholder="Enter Email"  ngModel>
@@ -18,6 +18,8 @@
              <tr *ngFor="let bk of users">
             <td>{{bk.email}}</td>
             <button (click)="makeAdmin(bk._id, userForm)"> Make Admin </button>
+            <button (click)="activate(bk._id, userForm)"> Activate </button>
+            <button (click)="deactivate(bk._id, userForm)"> Deactivate </button>
         </thead>
     </table>
     </div>
@@ -26,3 +28,31 @@
     <div [innerHtml]="myData"></div>
 </div>
 
+
+<form #hidingForm='ngForm' (ngSubmit) ="submitSongsSearch(hidingForm)">
+    <div>
+    <input type ="text" name="songTitle" placeholder="Enter Song Title"  ngModel>
+    </div>
+    <div>
+        <button type ="submit" >Finished</button>
+    </div>
+
+<div>
+    <table>
+    <thead>
+        <tr>
+        <th>songTitle</th>
+        </tr>
+         <tr *ngFor="let bk of songs">
+        <td>{{bk.songTitle}}</td>
+        <button (click)="makeHidden(bk._id, hidingForm)"> Make Hidden </button>
+        <button (click)="makeUnHidden(bk._id, hidingForm)"> Unhide </button>
+    </thead>
+</table>
+</div>
+</form>
+<div class="top">
+<div [innerHtml]="mySecondData"></div>
+</div>
+
+<a href='#' routerLink="/privacypolicy"> Privacy Policy</a>

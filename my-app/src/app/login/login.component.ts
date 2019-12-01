@@ -37,7 +37,10 @@ myData: SafeHtml;
       console.log(res['user1']);
       // console.log(res['token']);
       localStorage.setItem('token', res['token']);
-      if(res['user1'] == true){
+      if(res['user2'] == false){
+        this.router.navigate(['/sorry']);
+      }
+      else if(res['user1'] == true){
         localStorage.setItem('managerToken', "anything");
         this.router.navigate(['/manager']);
       }
