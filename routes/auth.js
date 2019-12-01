@@ -44,14 +44,14 @@ router.post('/register', async (req, res) =>{
     );
 
     // //Login
-    router.post('/login', (req, res) => {
+    router.post('/login',async(req, res) => {
         const {error} = loginValidation(req.body);
         if (error) return res.status(400).send(error.details[0].message);
         //Checking if email exists 
-        User.findOne({email: req.body.email}, (error, user) => {
+        User.findOne({email: req.body.email}, async(error, user) => {
         if(!user) return res.status(400).send("Email doesn't exist");
         //PASSWORD IS CORRECT
-        const validPass = bcrypt.compare(req.body.password, user.password);
+        const validPass = await bcrypt.compare(req.body.password, user.password);
         if(!validPass) return res.status(400).send("Password is incorrect");
         else{
             let payload = {subject: user.id};
