@@ -26,7 +26,7 @@ export class DmcaComponent implements OnInit {
 
  
    fetchSongs(){
-     this.songService.getSongs().subscribe((data: Song[])=>{
+     this.songService.getAllSongs().subscribe((data: Song[])=>{
        this.songs= data;
        console.log('Data requested');
        console.log(this.songs);

@@ -5,25 +5,76 @@ const Review = require('../models/review');
 const User = require('../models/user');
 const Log = require('../models/log');
 router.route('/songs').get(async(req, res) => {
-        try{
-            var shown= [];
-            const songs = await Song.find({}).sort({'numRating': -1})
-            // for(var i; i<songs.length; i++){
-            //     if(songs[i].isHidden == false)
-            //     shown.push(songs[i]);
-            // }
-            songs.filter(function(song){
-                console.log(song)
-                if(song.isHidden == false){
-                    shown.push(song);
+    try{
+        var flagtake;
+        var flagdisp;
+        var flagnotice
+        var shown= [];
+        const songs = await Song.find({}).sort({'numRating': -1})
+        const logs = await Log.find({}).sort({'year': 1})
+        console.log(logs);
+        songs.filter(function(song){
+        for(var i=0; i<logs.length; i++){
+            if(logs[i].songTitle == song.songTitle){
+                if(logs[i].takedownRequest == true){
+                    flagtake = false;
                 }
-            })
-
-            res.json(shown);
-            console.log(songs);
-        } catch(e) {
-          console.log('error:-', e)
+                if(logs[i].infringementNotice == true){
+                    flagdisp = false;
+                }
+                if(logs[i].disputed){
+                    flagnotice = false;
+                }
+                if(logs[i].takedownRequest == false){
+                    flagtake = true;
+                }
+                if(logs[i].infringementNotice == false){
+                    flagdisp = true;
+                }
+                if(logs[i].disputed == false){
+                    flagnotice = true;
+                }
+                if(!flagdisp || !flagtake || !flagnotice){
+                    song.isHidden = true;
+                }
+                if(flagdisp && flagnotice && flagtake){
+                    song.isHidden = false
+                }
+                if(typeof flagdisp == 'undefined'&& typeof flagnotice == 'undefined' && flagtake == true){
+                    song.isHidden = false
+                    console.log("I made it");
+                }
+                if(typeof flagdisp == 'undefined'&& flagnotice==true && typeof flagtake =='undefined' ){
+                    song.isHidden = false
+                    console.log("I made it");
+                }
+                if(flagdisp == true && typeof flagnotice == 'undefined' && typeof flagtake =='undefined'){
+                    song.isHidden = false
+                    console.log("I made it");
+                }
+            }
         }
+        
+            if(song.isHidden == false){
+                shown.push(song);
+            }
+        })
+        console.log(flagdisp);
+        console.log(flagtake);
+        console.log(flagnotice);
+        res.json(shown);
+    } catch(e) {
+      console.log('error:-', e)
+    }
+});
+router.route('/adminsongs').get(async(req, res) => {
+    try{
+        const songs = await Song.find({}).sort({'numRating': -1})
+        res.json(songs);
+        console.log(songs);
+    } catch(e) {
+      console.log('error:-', e)
+    }
 });
 router.route('/user').get(async(req, res) => {
     try{

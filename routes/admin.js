@@ -175,7 +175,7 @@ router.route('/removenotice/:song_id').post(async function(req, res) {
 });
 router.route('/logs').get(async(req, res) => {
     try{
-        const log = await Log.find({}).sort({'songTutle': -1})
+        const log = await Log.find({}).sort({'year': 1})
         res.json(log);
         console.log(log);
     } catch(e) {

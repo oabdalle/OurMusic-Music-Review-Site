@@ -47,6 +47,7 @@ export class SongService {
   readonly r15url = 'http://localhost:8080/api/admin/removedispute';
   readonly r16url = 'http://localhost:8080/api/admin/notice';
   readonly r17url = 'http://localhost:8080/api/admin/removenotice';
+  readonly tUrl = 'http://localhost:8080/api/open/adminsongs';
   constructor(private http: HttpClient, private router: Router) { 
   }
   getSongs(){
@@ -127,6 +128,9 @@ export class SongService {
     }
     removeDispute(lg:Log){
       return this.http.post(this.r15url+this.logUrl, lg);
+    }
+    getAllSongs(){
+      return this.http.get(this.tUrl);
     }
 
   //  postBook(bk:Book){
