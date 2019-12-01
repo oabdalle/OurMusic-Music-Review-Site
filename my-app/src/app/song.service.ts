@@ -21,6 +21,7 @@ export class SongService {
   selectedSong: Song|{}={}; 
   queryUrl: string;
   reviewUrl: string;
+  userUrl: string;
   readonly gUrl = 'http://localhost:8080/api/open/songs';
   readonly bUrl = 'http://localhost:8080/api/open/search';
   readonly pUrl = 'http://localhost:8080/api/user/login';
@@ -28,6 +29,7 @@ export class SongService {
   readonly rUrl = 'http://localhost:8080/api/open/review';
   readonly r2Url = 'http://localhost:8080/api/secure/review';
   readonly r3Url = 'http://localhost:8080/api/secure/song';
+  readonly r4Url = 'http://localhost:8080/api/open/user';
   constructor(private http: HttpClient, private router: Router) { }
   getSongs(){
     return this.http.get(this.gUrl);
@@ -45,6 +47,9 @@ export class SongService {
    loggedIn(){
      return !!localStorage.getItem('token');
    }
+   adminLogged(){
+    return !!localStorage.getItem('managerToken');
+   }
    getReviews(){
     return this.http.get(this.rUrl + this.reviewUrl);
    }
@@ -53,6 +58,12 @@ export class SongService {
     }
     postSong(sg:Song){
       return this.http.post(this.r3Url, sg);
+    }
+    getUser(){
+      return this.http.get(this.r4Url);
+    }
+    promoteUser(us:User){
+      return this.http.post(this.r4Url+this.userUrl, us);
     }
   //  postBook(bk:Book){
   //   return this._htpp.post(this.bUrl, bk)

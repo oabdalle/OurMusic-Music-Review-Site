@@ -34,9 +34,16 @@ myData: SafeHtml;
     else{
     this.songService.postUser(form.value).subscribe((res) => {
       console.log("Please go here");
-      console.log(res);
-      localStorage.setItem('token', res.token);
+      console.log(res['user1']);
+      // console.log(res['token']);
+      localStorage.setItem('token', res['token']);
+      if(res['user1'] == true){
+        localStorage.setItem('managerToken', "anything");
+        this.router.navigate(['/manager']);
+      }
+      else{
       this.router.navigate(['/special']);
+      }
       },
       (err) => this.myData = err.error);
   }

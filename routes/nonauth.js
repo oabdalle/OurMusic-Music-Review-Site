@@ -2,7 +2,7 @@ var express    = require('express');
 var router = express.Router();
 const Song = require('../models/song');
 const Review = require('../models/review');
-
+const User = require('../models/user')
 router.route('/songs').get(async(req, res) => {
         try{
             const songs = await Song.find({}).sort({'numRating': -1})
@@ -10,6 +10,14 @@ router.route('/songs').get(async(req, res) => {
         } catch(e) {
           console.log('error:-', e)
         }
+});
+router.route('/user').get(async(req, res) => {
+    try{
+        const users = await User.find({}).sort({'username': -1})
+        res.json(users);
+    } catch(e) {
+      console.log('error:-', e)
+    }
 });
 router.get('/search', async (req,res) => {
 
@@ -140,6 +148,23 @@ router.route('/review/:song_id').get(async function(req, res) {
         res.json(response);
     });
         }catch(e) {
+        console.log('error:-', e)
+         }
+});
+
+router.route('/user/:user_id').post(async function(req, res) {
+    try{
+    console.log(req.params.user_id);
+    await User.findById(req.params.user_id, function(err, user) {
+     user.managerialPriviliges = true;
+     user.save(function(err2) {
+        if (err2)
+            res.send(err2);
+
+        res.json('User Updated');
+    })
+        });
+    }catch(e) {
         console.log('error:-', e)
          }
 });

@@ -31,7 +31,7 @@ router.post('/register', async (req, res) =>{
         }else{
             let payload = {subject: registeredUser.id};
             let token = jwt.sign(payload, 'secretKey')
-            res.status(200).send({token}, registeredUser);
+            res.status(200).send({token}); 
         }
     })
     //  try{
@@ -55,9 +55,13 @@ router.post('/register', async (req, res) =>{
         if(!validPass) return res.status(400).send("Password is incorrect");
         else{
             let payload = {subject: user.id};
-            let token = jwt.sign(payload, 'secretKey')
-            res.status(200).send({token})
-        }
+            let token1 = jwt.sign(payload, 'secretKey')
+            var data= {
+                token: token1,
+                user1 : user.managerialPriviliges
+            }
+            res.status(200).json(data);
+        };
 
     });
         // //Create and assign a token

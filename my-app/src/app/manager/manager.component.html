@@ -1,1 +1,28 @@
-<p>manager works!</p>
+<p>Welcome Admin!</p>
+<p>Give a user managerial privliges!</p>
+
+<form #userForm='ngForm' (ngSubmit) ="submitUserSearch(userForm)">
+        <div>
+        <input type ="text" name="email" placeholder="Enter Email"  ngModel>
+        </div>
+        <div>
+            <button type ="submit" >Finished</button>
+        </div>
+
+<div>
+        <table>
+        <thead>
+            <tr>
+            <th>Username</th>
+            </tr>
+             <tr *ngFor="let bk of users">
+            <td>{{bk.email}}</td>
+            <button (click)="makeAdmin(bk._id, userForm)"> Make Admin </button>
+        </thead>
+    </table>
+    </div>
+</form>
+<div class="top">
+    <div [innerHtml]="myData"></div>
+</div>
+
