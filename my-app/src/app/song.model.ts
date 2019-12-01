@@ -32,3 +32,11 @@ export class Policy{
 export class DMCA{
     text:{type:String, required:true};
 }
+
+export class Log{
+    takedownRequest:{type:Boolean};
+    infringementNotice:{type:Boolean};
+    disputed:{type:Boolean};
+    songTitle:{type:String, required:true};
+    year:{type:String, required:true};
+}

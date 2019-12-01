@@ -25,3 +25,48 @@ Change DMCA Policy
 <div>
         In order to take down a song, search for the song below and press on "take down"
 </div>
+<form #logForm='ngForm' (ngSubmit) ="submitLog(logForm)">
+<div>
+        <table>
+        <thead>
+            <tr>
+            <th>Song Title</th>
+            </tr>
+            <tr *ngFor="let bk of songs">
+            <td>{{bk.songTitle}}</td>
+            <td>{{bk.year}}</td>
+            <button (click)="takedown(bk._id, logForm)"> Takedown </button>
+            <button (click)="removeTakedown(bk._id, logForm)"> Remove Takedown </button>
+            <button (click)="recordNotice(bk._id, logForm)"> Infringement Notice </button>
+            <button (click)="removeNotice(bk._id, logForm)"> Remove Notice </button>
+            <button (click)="dispute(bk._id, logForm)"> Dispute </button>
+            <button (click)="removeDispute(bk._id, logForm)"> Remove Dispute </button>
+            </tr>
+        </thead>
+        </table>    
+        </div>
+</form>
+<div> Logged </div>
+
+<form #log2Form='ngForm' (ngSubmit) ="submitLog2(log2Form)">
+<div>
+        <table>
+        <thead>
+            <tr>
+            <th>Song Title</th>
+            <th>Date</th>
+            <th>Takedown Request</th>
+            <th>infringement Notice</th>
+            <th>Disputed</th>
+            </tr>
+            <tr *ngFor="let bk of logs">
+            <td>{{bk.songTitle}}</td>
+            <td>{{bk.year}}</td>
+            <td>{{bk.takedownRequest}}</td>
+            <td>{{bk.infringementNotice}}</td>
+            <td>{{bk.disputed}}</td>
+            </tr>
+        </thead>
+        </table>    
+        </div>
+</form>

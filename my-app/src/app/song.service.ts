@@ -1,6 +1,6 @@
 import {ErrorHandler, Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Song, User, Review, Policy, DMCA} from './song.model';
+import {Song, User, Review, Policy, DMCA, Log} from './song.model';
 import { HttpInterceptor, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -25,6 +25,7 @@ export class SongService {
   userUrl: string;
   policys: Policy[];
   dmcas: DMCA[];
+  logUrl: string;
   readonly gUrl = 'http://localhost:8080/api/open/songs';
   readonly bUrl = 'http://localhost:8080/api/open/search';
   readonly pUrl = 'http://localhost:8080/api/user/login';
@@ -39,6 +40,13 @@ export class SongService {
   readonly r8url = 'http://localhost:8080/api/open/unhidden';
   readonly r9url = 'http://localhost:8080/api/admin/policy';
   readonly r10url = 'http://localhost:8080/api/admin/dmca';
+  readonly r11url = 'http://localhost:8080/api/admin/logs';
+  readonly r12url = 'http://localhost:8080/api/admin/takedown';
+  readonly r13url = 'http://localhost:8080/api/admin/removetakedown';
+  readonly r14url = 'http://localhost:8080/api/admin/dispute';
+  readonly r15url = 'http://localhost:8080/api/admin/removedispute';
+  readonly r16url = 'http://localhost:8080/api/admin/notice';
+  readonly r17url = 'http://localhost:8080/api/admin/removenotice';
   constructor(private http: HttpClient, private router: Router) { 
   }
   getSongs(){
@@ -98,6 +106,27 @@ export class SongService {
     }
     showDMCA(){
       return this.http.get(this.r10url);
+    }
+    getLogs(){
+      return this.http.get(this.r11url);
+    }
+    makeTakedown(lg:Log){
+      return this.http.post(this.r12url+this.logUrl, lg);
+    }
+    removeTakedown(lg:Log){
+      return this.http.post(this.r13url+this.logUrl, lg);
+    }
+    makeNotice(lg:Log){
+      return this.http.post(this.r16url+this.logUrl, lg);
+    }
+    removeNotice(lg:Log){
+      return this.http.post(this.r17url+this.logUrl, lg);
+    }
+    makeDispute(lg:Log){
+      return this.http.post(this.r14url+this.logUrl, lg);
+    }
+    removeDispute(lg:Log){
+      return this.http.post(this.r15url+this.logUrl, lg);
     }
 
   //  postBook(bk:Book){

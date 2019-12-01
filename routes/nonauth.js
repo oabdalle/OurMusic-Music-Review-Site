@@ -2,7 +2,8 @@ var express    = require('express');
 var router = express.Router();
 const Song = require('../models/song');
 const Review = require('../models/review');
-const User = require('../models/user')
+const User = require('../models/user');
+const Log = require('../models/log');
 router.route('/songs').get(async(req, res) => {
         try{
             var shown= [];
@@ -106,7 +107,13 @@ router.get('/search', async (req,res) => {
 });
 router.route('/create').post(function(req, res) {
     console.log(req)
-    var song = new Song();     
+    var song = new Song(); 
+    // var log = new Log();
+    //     log.songTitle= req.body.songTitle;
+    //     log.year = req.body.year;
+    //     log.takedownRequest = false;
+    //     log.infringementNotice = false;
+    //     log.disputed = false;
         song.songTitle = req.body.songTitle;  
         song.artist = req.body.artist;
         song.album = req.body.album;
@@ -116,11 +123,15 @@ router.route('/create').post(function(req, res) {
         song.avgRating = req.body.avgRating;
         song.numReviews = req.body.numReviews;
         song.numRating = req.body.numRating;
+        // log.save(function(err) {
+        //     if (err)
+        //         res.send(err);
+        // })
         song.save(function(err) {
             if (err)
                 res.send(err);
 
-            res.json({ message: 'Song Created!' });
+            res.json({ message: 'Song and log Created!' });
         })
 });
 router.route('/review/:song_id').post(function(req, res) {
