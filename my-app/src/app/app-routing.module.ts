@@ -14,6 +14,7 @@ import {SrgeneratorComponent} from './srgenerator/srgenerator.component';
 import {ManagerComponent} from './manager/manager.component';
 import {SorryComponent} from './sorry/sorry.component';
 import {PrivacyComponent} from './privacy/privacy.component';
+import {DmcaComponent} from './dmca/dmca.component';
 const routes: Routes = [
   {path: 'songlist', component:SonglistComponent},
   {path: 'keysearch', component: KeysearchComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'manager', component: ManagerComponent, canActivate: [ManagerguardGuard]},
   {path: 'sorry', component: SorryComponent},
   {path: 'privacypolicy', component: PrivacyComponent},
+  {path: 'dmcapolicy', component: DmcaComponent}
 ];
 
 @NgModule({

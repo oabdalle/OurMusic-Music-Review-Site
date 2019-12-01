@@ -29,3 +29,6 @@ export class Review{
 export class Policy{
     text:{type:String, required:true};
 }
+export class DMCA{
+    text:{type:String, required:true};
+}

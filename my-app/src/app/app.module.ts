@@ -21,6 +21,7 @@ import { SrgeneratorComponent } from './srgenerator/srgenerator.component';
 import { ManagerComponent } from './manager/manager.component';
 import { SorryComponent } from './sorry/sorry.component';
 import { PrivacyComponent } from './privacy/privacy.component';
+import { DmcaComponent } from './dmca/dmca.component';
 // import { RgeneratorComponent } from './rgenerator/rgenerator.component';
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { PrivacyComponent } from './privacy/privacy.component';
     ManagerComponent,
     SorryComponent,
     PrivacyComponent,
+    DmcaComponent,
     // RgeneratorComponent
   ],
   imports: [

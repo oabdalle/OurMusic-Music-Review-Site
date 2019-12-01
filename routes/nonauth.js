@@ -5,8 +5,20 @@ const Review = require('../models/review');
 const User = require('../models/user')
 router.route('/songs').get(async(req, res) => {
         try{
+            var shown= [];
             const songs = await Song.find({}).sort({'numRating': -1})
-            res.json(songs);
+            // for(var i; i<songs.length; i++){
+            //     if(songs[i].isHidden == false)
+            //     shown.push(songs[i]);
+            // }
+            songs.filter(function(song){
+                console.log(song)
+                if(song.isHidden == false){
+                    shown.push(song);
+                }
+            })
+
+            res.json(shown);
             console.log(songs);
         } catch(e) {
           console.log('error:-', e)

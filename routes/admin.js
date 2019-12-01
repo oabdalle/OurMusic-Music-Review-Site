@@ -38,23 +38,22 @@ router.route('/dmca').post(async function(req, res) {
     //     res.json({ message: 'DMCA Created!' });
     // })
     try{
-        const dmca = await Policy.find({}).sort({'text': -1})
-        policy[0].text = req.body.text;
-        policy[0].save(function(err2) {
+        const dmca = await Dmca.find({}).sort({'text': -1})
+        dmca[0].text = req.body.text;
+        dmca[0].save(function(err2) {
             if (err2)
                 res.send(err2);
     
         })
-        res.json(policy[0].text);
+        res.json(dmca[0].text);
     } catch(e) {
       console.log('error:-', e)
     }
 });
 router.route('/dmca').get(async(req, res) => {
     try{
-        const policy = await Policy.find({}).sort({'text': -1})
-        res.json(policy);
-        console.log(policy);
+        const dmca = await Dmca.find({}).sort({'text': -1})
+        res.json(dmca);
     } catch(e) {
       console.log('error:-', e)
     }

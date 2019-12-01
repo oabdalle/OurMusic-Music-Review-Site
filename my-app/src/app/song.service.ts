@@ -1,6 +1,6 @@
 import {ErrorHandler, Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Song, User, Review, Policy} from './song.model';
+import {Song, User, Review, Policy, DMCA} from './song.model';
 import { HttpInterceptor, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -24,6 +24,7 @@ export class SongService {
   reviewUrl: string;
   userUrl: string;
   policys: Policy[];
+  dmcas: DMCA[];
   readonly gUrl = 'http://localhost:8080/api/open/songs';
   readonly bUrl = 'http://localhost:8080/api/open/search';
   readonly pUrl = 'http://localhost:8080/api/user/login';
@@ -37,6 +38,7 @@ export class SongService {
   readonly r7url = 'http://localhost:8080/api/open/makehidden';
   readonly r8url = 'http://localhost:8080/api/open/unhidden';
   readonly r9url = 'http://localhost:8080/api/admin/policy';
+  readonly r10url = 'http://localhost:8080/api/admin/dmca';
   constructor(private http: HttpClient, private router: Router) { 
   }
   getSongs(){
@@ -90,6 +92,12 @@ export class SongService {
     }
     showPolicy(){
       return this.http.get(this.r9url);
+    }
+    makeDMCA(dc:DMCA){
+      return this.http.post(this.r10url, dc);
+    }
+    showDMCA(){
+      return this.http.get(this.r10url);
     }
 
   //  postBook(bk:Book){
