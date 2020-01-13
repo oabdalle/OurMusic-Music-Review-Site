@@ -14,27 +14,24 @@ export class KeysearchComponent implements OnInit {
   myData: SafeHtml;
   songs: Song[];
   reviews: Review[];
+  section: any = [];
+  section1: any = [];
   constructor(public songservice: SongService) {
     songservice.queryUrl = "?songTitle="
    }
+   
 
   ngOnInit() {
   }
-  // fetchSongs(){
-  //   this.songservice.getSongs().subscribe((data: Song[])=>{
-  //       this.songs = data;
-  //       console.log('Data requested');
-  //       console.log(this.songs);
-  //      })
-  // }
 
+  openSectionChecker(){
+    
+  }
   submitSearchUnique(event,formData){
     console.log(formData.value.songTitle);
-    //console.log(event);
    this.songservice.queryUrl = "?songTitle=" + formData.value.songTitle;
    this.songservice.getSearch().subscribe((data: Song[])=>{
            this.songs = data;
-           //console.log(this.songs);
     })
   }
   submitSearchTwo(event,formData){
@@ -101,12 +98,4 @@ export class KeysearchComponent implements OnInit {
     })
 
    }
-  // if(formData == "artistForm"){
-  //   this.songservice.queryUrl = "?artist=" + formData.value.songTitle;
-  //   this.songservice.getSearch().subscribe((data: Song[])=>{
-  //           this.songs = data;
-  //           console.log(this.songs);
-  //    })
-  //  }
-  // }
 }

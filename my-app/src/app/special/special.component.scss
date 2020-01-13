@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header
+{
+background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(piano12.jpg);
+height: 100%;
+background-repeat: no-repeat;
+background-position: cover;
+background-position: center;
+}
+.main-nav{
+   float:right;
+   list-style: none;
+   margin-top:30px;
+}
+.main-nav li{
+   display: inline-block;
+}
+.main-nav li a, h1{
+   color: white;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   padding: 5px 20px;
+   font-size: 20px;
+   text-decoration: none;
+}
+.main-nav li a:hover{
+border: 1px solid white;
+}
+.desc1{
+   position: absolute;
+
+}
+h1{
+    animation: pop 0.5s linear 1;
+}
+@keyframes pop{
+    50%  {transform: scale(1.02);}
+  }
+
+.desc{
+    position: absolute;
+}
+h2{
+    position: center;
+    color: white;
+    margin-top: 300px;
+    margin-left: 650px;
+    font-style: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 60px;
+    border: none;
+    zoom: 90%;
+}
+h3{
+    position: center;
+    color: white;
+    margin-top: 50px;
+    margin-left: 690px;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
+    border: none;
+    zoom: 90%;
+}
+    

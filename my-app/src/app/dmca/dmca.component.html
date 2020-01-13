@@ -1,9 +1,10 @@
-DMCA Notice
+<body>
+<span class = "Title">DMCA Notice</span>
 <div class="top">
-    <div [innerHtml]="mySecondData">
+    <div class = "inserted" [innerHtml]="mySecondData">
     </div>
 </div>
-Change DMCA Policy
+<span>Change DMCA Policy</span>
 <form #dmcaForm='ngForm' (ngSubmit) ="submitDMCA(dmcaForm)">
     <div>
     <input type ="text" name="text" placeholder="New Changes" ngModel >
@@ -18,23 +19,24 @@ Change DMCA Policy
 </div>
 
 <div>
-   if given  reasonably sufficient details to enable us to identify the work claimed to be infringed or, if multiple works are claimed to be infringed then we will begin the process fo removing the unlawful song
+
+<span class ="desc"> If given  reasonably sufficient details to enable us to identify the work claimed to be infringed or, if multiple works are claimed to be infringed then we will begin the process fo removing the unlawful song </span>
    
 </div>
-
+<br>
 <div>
-        In order to take down a song, search for the song below and press on "take down"
+    <span class = "desc">In order to take down a song, search for the song below and press on "take down"</span>
 </div>
 <form #logForm='ngForm' (ngSubmit) ="submitLog(logForm)">
 <div>
         <table>
         <thead>
             <tr>
-            <th>Song Title</th>
+            <th><h1>Song Title</h1></th>
             </tr>
             <tr *ngFor="let bk of songs">
-            <td>{{bk.songTitle}}</td>
-            <td>{{bk.year}}</td>
+            <td><h1>{{bk.songTitle}}</h1></td>
+            <td><h1>{{bk.year}}</h1></td>
             <button (click)="takedown(bk._id, logForm)"> Takedown </button>
             <button (click)="removeTakedown(bk._id, logForm)"> Remove Takedown </button>
             <button (click)="recordNotice(bk._id, logForm)"> Infringement Notice </button>
@@ -46,27 +48,28 @@ Change DMCA Policy
         </table>    
         </div>
 </form>
-<div> Logged </div>
+<div><span>Logged</span></div>
 
 <form #log2Form='ngForm' (ngSubmit) ="submitLog2(log2Form)">
 <div>
         <table>
         <thead>
             <tr>
-            <th>Song Title</th>
-            <th>Date</th>
-            <th>Takedown Request</th>
-            <th>infringement Notice</th>
-            <th>Disputed</th>
+            <th><h1>Song Title</h1></th>
+            <th><h1>Date</h1></th>
+            <th><h1>Takedown Request</h1></th>
+            <th><h1>infringement Notice</h1></th>
+            <th><h1>Disputed</h1></th>
             </tr>
             <tr *ngFor="let bk of logs">
-            <td>{{bk.songTitle}}</td>
-            <td>{{bk.year}}</td>
-            <td>{{bk.takedownRequest}}</td>
-            <td>{{bk.infringementNotice}}</td>
-            <td>{{bk.disputed}}</td>
+            <td><h1>{{bk.songTitle}}</h1></td>
+            <td><h1>{{bk.year}}</h1></td>
+            <td><h1>{{bk.takedownRequest}}</h1></td>
+            <td><h1>{{bk.infringementNotice}}</h1></td>
+            <td><h1>{{bk.disputed}}</h1></td>
             </tr>
         </thead>
         </table>    
         </div>
 </form>
+</body>

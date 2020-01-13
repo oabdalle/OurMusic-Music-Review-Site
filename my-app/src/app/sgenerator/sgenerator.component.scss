@@ -1,0 +1,64 @@
+
+header
+{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(record.jpg);
+    height: 100%;
+background-repeat: no-repeat;
+background-position: cover;
+background-position: center;
+}
+input{
+    width: 35%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    zoom: 90%;
+
+  }
+  
+  button {
+    width: 35%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    zoom: 90%;
+
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .wholeForm{
+    border-radius: 5px;
+    background-color: transparent;
+    padding: 20px;
+    width:50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    zoom: 90%;
+
+    transform: translate(-17%, -50%) 
+  }
+  h1{
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    zoom: 90%;
+
+  }
+  h2{
+      color:white;
+      font-size: 14px;
+      zoom: 90%;
+
+  }

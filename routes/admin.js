@@ -30,14 +30,6 @@ router.route('/policy').get(async(req, res) => {
     }
 });
 router.route('/dmca').post(async function(req, res) {
-    // var dmca = new Dmca();     
-    // dmca.text = req.body.text;  
-    // dmca.save(function(err) {
-    //     if (err)
-    //         res.send(err);
-
-    //     res.json({ message: 'DMCA Created!' });
-    // })
     try{
         const dmca = await Dmca.find({}).sort({'text': -1})
         dmca[0].text = req.body.text;

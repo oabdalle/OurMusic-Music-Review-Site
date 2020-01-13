@@ -132,8 +132,4 @@ export class SongService {
     getAllSongs(){
       return this.http.get(this.tUrl);
     }
-
-  //  postBook(bk:Book){
-  //   return this._htpp.post(this.bUrl, bk)
-  //   }
 }

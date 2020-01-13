@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header
+{
+background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(vinyl.jpg);
+height: 100%;
+background-repeat: no-repeat;
+background-position: cover;
+background-position: center;
+}
+div{
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+text-align: center;
+}
+h1{
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-style: none;
+    margin-top: 340px;
+}
+h2{
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-style: none;
+}

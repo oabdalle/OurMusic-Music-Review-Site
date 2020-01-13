@@ -91,7 +91,6 @@ router.get('/search', async (req,res) => {
 
         var response = [];
       
-        // this would usually adjust your database query
         if(typeof req.query.songTitle != 'undefined'){
             songs.filter(function(song){
                 if(song.songTitle.toString() == req.query.songTitle){
@@ -136,9 +135,10 @@ router.get('/search', async (req,res) => {
         }
         if(typeof req.query.genre != 'undefined'){
             songs.filter(function(song){
+                if(typeof song.genre != 'undefined'){
                 if(song.genre.toString() == req.query.genre){
                 response.push(song);
-                }
+                }}
             })
         }
         if(typeof req.query.comment != 'undefined'){
@@ -148,9 +148,6 @@ router.get('/search', async (req,res) => {
                 }
             })
         }
-        // de-duplication:
-        // response = _.uniqBy(response, 'id');
-      
         res.json(response);
     }catch(e) {
         console.log('error:-', e)
@@ -159,12 +156,7 @@ router.get('/search', async (req,res) => {
 router.route('/create').post(function(req, res) {
     console.log(req)
     var song = new Song(); 
-    // var log = new Log();
-    //     log.songTitle= req.body.songTitle;
-    //     log.year = req.body.year;
-    //     log.takedownRequest = false;
-    //     log.infringementNotice = false;
-    //     log.disputed = false;
+    
         song.songTitle = req.body.songTitle;  
         song.artist = req.body.artist;
         song.album = req.body.album;
@@ -174,10 +166,7 @@ router.route('/create').post(function(req, res) {
         song.avgRating = req.body.avgRating;
         song.numReviews = req.body.numReviews;
         song.numRating = req.body.numRating;
-        // log.save(function(err) {
-        //     if (err)
-        //         res.send(err);
-        // })
+        
         song.save(function(err) {
             if (err)
                 res.send(err);
@@ -208,18 +197,12 @@ router.route('/review/:song_id').get(async function(req, res) {
     try{
     var response = [];
     const reviews = await Review.find({}).sort({'numRating': -1});
-    //console.log(reviews.length);
     Song.findById(req.params.song_id, function(err, song) {
         for(let i = 0; i < reviews.length; i++ ){
-            // console.log("Hi");
-            // console.log(reviews[i].songReviewed.toString());
-            // console.log(song.songTitle.toString());
             if(reviews[i].songReviewed.toString() == song.songTitle.toString()){   
-               // console.log("Made it!");
                 response.push(reviews[i]);
             }
         }
-       // console.log(response);
         res.json(response);
     });
         }catch(e) {
@@ -312,23 +295,6 @@ router.route('/unhidden/:song_id').post(async function(req, res) {
          }
 });
 
-
-
-// router.route('/review/:song_id').post(function(req, res) {
-//         Song.findById(req.params.song_id, function(err, song) {
-//                 if (err)
-//                     res.send(err);
-//                 book.quantity = req.body.quantity;  
-//                 console.log(req.body.quantity)
-//                 book.save(function(err) {
-//                     if (err)
-//                         res.send(err);
-    
-//                     res.json({ message: 'Book updated!' });
-//                 });
-    
-//             });
-//  });
 
 
 module.exports = router;

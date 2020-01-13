@@ -13,7 +13,6 @@ import { SafeHtml } from '@angular/platform-browser';
 export class ManagerComponent implements OnInit {
   users: User[];
   songs: Song[];
- // fruits: Array<any>;
   myData: SafeHtml;
   constructor(private songService:SongService,private router: Router) { }
 
@@ -21,14 +20,6 @@ export class ManagerComponent implements OnInit {
   }
   submitUserSearch(form:NgForm){
     this.songService.getUser().subscribe((data: User[])=>{
-      // console.log((form.value));
-      // for(var i =0; i < data.length; i++){
-      //   if(data[i].email == form.value.email){
-      //     console.log(data[i]);
-         
-      //     this.users.push(data[i]);
-      //   }
-      // }
     this.users = data;
     })
     }
@@ -68,7 +59,6 @@ export class ManagerComponent implements OnInit {
     this.songService.queryUrl = "?songTitle=" + form.value.songTitle;
     this.songService.getSearch().subscribe((data: Song[])=>{
             this.songs = data;
-            //console.log(this.songs);
      })
     }
     makeHidden(theID, form:NgForm){

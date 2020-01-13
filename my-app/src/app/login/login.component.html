@@ -1,4 +1,9 @@
+<body>
+<div class ="login">
 <div>
+    <p>
+    Login!   
+    </p>
         <form #loginForm = "ngForm" (ngSubmit) ="onSubmit(loginForm)">
             <!--<input type ="hidden" name="_id" #_id="ngModel" [(ngModel)] = "bookService.selectedBook._id"> -->
             <div>
@@ -11,18 +16,19 @@
                 <button type ="submit" >Finished</button>
             </div>
         </form>
+</div>
+
 <div>
-
-        <div>
-                <form #sendtoRegisterForm = "ngForm" (ngSubmit) ="newSubmit(sendtoRegisterForm)">
-                    <!--<input type ="hidden" name="_id" #_id="ngModel" [(ngModel)] = "bookService.selectedBook._id"> -->
-                    <div>
-                        <button type ="submit" >Register</button>
-                    </div>
-                </form>
-        <div>
-
-                <div class="top">
-                        <div [innerHtml]="myData"></div>
-                      </div>
+        <form #sendtoRegisterForm = "ngForm" (ngSubmit) ="newSubmit(sendtoRegisterForm)">
+         <!--<input type ="hidden" name="_id" #_id="ngModel" [(ngModel)] = "bookService.selectedBook._id"> -->
+            <div>
+                <button type ="submit" >Register</button>
+            </div>
+        </form>
+</div>
+        <div class="top">
+            <div class ="inserted" [innerHtml]="myData"></div>
+</div>
+</div>
+</body>
         

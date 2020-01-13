@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body
+{
+background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(laughing2.jpeg);
+height: 100%;
+background-repeat: no-repeat;
+background-position: cover;
+background-position: center;
+}
+.register{
+    width: 320px;
+    height: 380px;
+    background:black;
+    color: white;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-230%, -70%);
+    box-sizing: border-box;
+    border-radius: 25px;
+    zoom: 90%;
+}
+p{
+    margin-top: 30px;
+    padding:0;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+.register input{
+    margin-top: 20px;
+    width: 80%;
+    margin-left: 20px;
+    margin-bottom: 25px;
+    border:none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+}
+.register button{
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 150px;
+    background: #fb2525;
+    color:white;
+    font-size: 14px;
+    border-radius: 10px;
+    margin-left: 82px;
+    margin-top: 15px;
+}
+.inserted{
+    margin-left: 70px;
+    font-weight: bold;
+}

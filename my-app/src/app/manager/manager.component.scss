@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header
+{
+background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(piano1.jpg);
+height: 100%;
+background-repeat: no-repeat;
+background-position: cover;
+background-position: center;
+}
+.main-nav{
+   float:right;
+   list-style: none;
+   margin-top:30px;
+}
+.main-nav li{
+   display: inline-block;
+}
+.main-nav li a{
+   color: white;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   padding: 5px 20px;
+   font-size: 20px;
+   text-decoration: none;
+}
+.main-nav li a:hover{
+border: 1px solid white;
+}
+h2{
+    position: absolute;
+    color: white;
+    font-style: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 60px;
+    border: none;
+    zoom: 90%;
+    top: 35%;
+    left: 42%
+}
+h3{
+    position: absolute;
+    top: 50%;
+    left: 44%;
+    color: white;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
+    border: none;
+    zoom: 90%;
+}
+h4{
+    font-style: none;
+    color:white;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    zoom: 90%;
+}
+input{
+    width: 40%;
+    border:none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    height: 20px;
+    font-size: 16px;
+    color: #fff;
+}
+.privliges, .Hide{
+    border: 1px solid white;
+    width: 450px;
+}
+.Hide{
+    margin-top: 10px;
+}
+h1{
+    color:white;
+    font-size: 12px;
+}
+.inserted, .inserted2{
+    font-weight: bold;
+    color:white;
+    font-size: 12px;
+}

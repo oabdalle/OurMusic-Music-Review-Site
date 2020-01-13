@@ -1,72 +1,61 @@
-<button  (click)="showReview()" > Do review as well? </button>
+<body>
+<header>
+<div class ="desc">
+    <span>Song and Review Form</span>
+</div>
+<div *ngIf="!section['first']">
+<button class ="addBar"(click)="showReview(); ; section['first'] = !section['first']"> Do review as well? </button>
+</div>
 <div class="top">
         <div [innerHtml]="myData"></div>
 </div>
-<div>
+<div class ="wholeForm1">
         <form #creview4Form = "ngForm" (ngSubmit) ="onSubmit(creview4Form)">
             <input type ="hidden" name="id" #id="ngModel" [(ngModel)] = "songservice.selectedSong.id">
-            <div>
+            <br>
             <input type ="text" name="songTitle" ngModel  placeholder="Enter songTitle">
-            </div>
-            <div>
-                <input type ="text" name="artist" ngModel placeholder="Enter artist">
-            </div>
-            <div>
-                <input type ="text" name="album" ngModel placeholder="Enter album">
-            </div>
-            <div>
-                 <input type ="text" name="year" ngModel placeholder="Enter year">
-            </div>
-            <div>
-                <input type ="text" name="comment" ngModel placeholder="Enter comment">
-            </div>
-            <div>
-                <input type ="text" name="genre" ngModel placeholder="Enter genre ">
-            </div>
-            <div>
-                <input type ="text" name="avgRating" ngModel placeholder="Enter avgRating">
-            </div>
-            <div>
-                <input type ="text" name="numReviews" ngModel placeholder="Enter numReviews">
-            </div>
-            <div>
-                 <input type ="text" name="numRating" ngModel placeholder="Enter numRating">
-            </div>
+            <br>
+            <input type ="text" name="artist" ngModel placeholder="Enter artist">
+            <br>
+            <input type ="text" name="album" ngModel placeholder="Enter album">
+            <br>
+            <input type ="text" name="year" ngModel placeholder="Enter year">
+            <br>
+            <input type ="text" name="comment" ngModel placeholder="Enter comment">
+            <br>
+            <input type ="text" name="genre" ngModel placeholder="Enter genre">
+            <br>
+            <input type ="text" name="avgRating" ngModel placeholder="Enter avgRating">
+            <br>
+            <input type ="text" name="numReviews" ngModel placeholder="Enter numReviews">
+            <br>
+            <input type ="text" name="numRating" ngModel placeholder="Enter numRating">
+            <br>
             <div *ngIf="subFlag">
                 <button type ="submit" >Create</button>
             </div>
         </form>
-<div>
-    Review Form
-    
-<div *ngIf="flag">
+</div> 
+<div class ="wholeForm" *ngIf="flag">
     <form  #creview5Form = "ngForm" (ngSubmit) ="onSubmit2(creview5Form, creview4Form)">
-                    <div>
                     <input type ="text" name="songReviewed" ngModel  placeholder="Enter songReviewed">
-                    </div>
-                    <div>
-                        <input type ="text" name="submittedBy" ngModel placeholder="Enter submittedBy">
-                    </div>
-                    <div>
-                        <input type ="text" name="submittedOn" ngModel placeholder="Enter submittedOn ">
-                    </div>
-                    <div>
-                         <input type ="text" name="avgRating" ngModel placeholder="Enter avgRating">
-                    </div>
-                    <div>
-                        <input type ="text" name="ratingForObject" ngModel placeholder="Enter ratingForObject">
-                    </div>
-                    <div>
-                        <input type ="text" name="description" ngModel placeholder="Enter description ">
-                    </div>
-                    <div>
-                        <input type ="text" name="numRating" ngModel placeholder="Enter numRating">
-                    </div>
+                    <br>
+                    <input type ="text" name="submittedBy" ngModel placeholder="Enter submittedBy">
+                    <br>
+                    <input type ="text" name="submittedOn" ngModel placeholder="Enter submittedOn ">
+                    <br>
+                    <input type ="text" name="avgRating" ngModel placeholder="Enter avgRating">
+                    <br>
+                    <input type ="text" name="ratingForObject" ngModel placeholder="Enter ratingForObject">
+                    <br>
+                    <input type ="text" name="description" ngModel placeholder="Enter description">
+                    <br>
+                    <input type ="text" name="numRating" ngModel placeholder="Enter numRating">
+                    <br>
                     <div>
                         <button type ="submit" >Create</button>
                     </div>
-                </form>
-        <div>        
-<div class="top">
-    <div [innerHtml]="myData"></div>
- </div>
+        </form>
+ </div>        
+ </header>
+</body>

@@ -1,6 +1,18 @@
-<p>Welcome Admin!</p>
-<p>Give a user managerial privliges!</p>
-<p>Decide if a user should be inactive or inactive!</p>
+<body>
+<header>
+    <nav>
+        <ul class="main-nav">
+        <li>
+            <a href='#' routerLink="/privacypolicy"> Privacy Policy</a>
+        </li>
+        <li>
+            <a href='#' routerLink="/dmcapolicy"> DMCA Policy</a>
+        </li>
+        </ul>
+    </nav>
+<div class = "privliges"> 
+<h4>Give a user managerial privliges!</h4>
+<h4>Decide if a user should be inactive or inactive!</h4>
 <form #userForm='ngForm' (ngSubmit) ="submitUserSearch(userForm)">
         <div>
         <input type ="text" name="email" placeholder="Enter Email"  ngModel>
@@ -16,44 +28,55 @@
             <th>Username</th>
             </tr>
              <tr *ngFor="let bk of users">
-            <td>{{bk.email}}</td>
+            <td><h1>{{bk.email}}</h1></td>
             <button (click)="makeAdmin(bk._id, userForm)"> Make Admin </button>
             <button (click)="activate(bk._id, userForm)"> Activate </button>
             <button (click)="deactivate(bk._id, userForm)"> Deactivate </button>
         </thead>
     </table>
-    </div>
-</form>
-<div class="top">
-    <div [innerHtml]="myData"></div>
-</div>
-
-
-<form #hidingForm='ngForm' (ngSubmit) ="submitSongsSearch(hidingForm)">
-    <div>
-    <input type ="text" name="songTitle" placeholder="Enter Song Title"  ngModel>
-    </div>
-    <div>
-        <button type ="submit" >Finished</button>
-    </div>
-
-<div>
-    <table>
-    <thead>
-        <tr>
-        <th>songTitle</th>
-        </tr>
-         <tr *ngFor="let bk of songs">
-        <td>{{bk.songTitle}}</td>
-        <button (click)="makeHidden(bk._id, hidingForm)"> Make Hidden </button>
-        <button (click)="makeUnHidden(bk._id, hidingForm)"> Unhide </button>
-    </thead>
-</table>
 </div>
 </form>
-<div class="top">
-<div [innerHtml]="mySecondData"></div>
-</div>
 
-<a href='#' routerLink="/privacypolicy"> Privacy Policy</a>
-<a href='#' routerLink="/dmcapolicy"> DMCA Policy</a>
+</div>
+<div class = "Hide">
+    <h4>Decide if a song should be hidden!</h4>
+    <form #hidingForm='ngForm' (ngSubmit) ="submitSongsSearch(hidingForm)">
+        <div>
+        <input type ="text" name="songTitle" placeholder="Enter Song Title"  ngModel>
+        </div>
+        <div>
+            <button type ="submit" >Finished</button>
+        </div>
+
+    <div>
+        <table>
+        <thead>
+            <tr>
+            <th>songTitle</th>
+            </tr>
+            <tr *ngFor="let bk of songs">
+            <td><h1>{{bk.songTitle}}</h1></td>
+            <button (click)="makeHidden(bk._id, hidingForm)"> Make Hidden </button>
+            <button (click)="makeUnHidden(bk._id, hidingForm)"> Unhide </button>
+        </thead>
+    </table>
+    </div>
+    </form>
+    
+</div>
+<div class="top">
+    <div class ="inserted" [innerHtml]="myData"></div>
+</div>
+<div class="top">
+    <div class ="inserted2" [innerHtml]="mySecondData"></div>
+</div>
+<div class ="desc">
+    <h2>
+     OurMusic 
+    </h2>
+      <h3>
+  Welcome Admin         
+      </h3>
+</div>
+</header>
+</body>

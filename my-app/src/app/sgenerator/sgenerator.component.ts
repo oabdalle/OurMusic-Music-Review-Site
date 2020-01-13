@@ -29,8 +29,6 @@ export class SgeneratorComponent implements OnInit {
     this.songservice.postSong(form.value).subscribe((res) => {
       console.log(res);
       });
-  
-    //this.router.navigate(['/']);
-    }
+      }
   }
 }

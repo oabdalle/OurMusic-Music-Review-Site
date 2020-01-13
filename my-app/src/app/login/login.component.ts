@@ -23,7 +23,6 @@ myData: SafeHtml;
   }
 
   onSubmit(form:NgForm){
-    // console.log("Attempting Login!");
     if(typeof form.value.email == 'undefined')
     {
       this.myData = "Please enter an email"; 
@@ -35,7 +34,6 @@ myData: SafeHtml;
     this.songService.postUser(form.value).subscribe((res) => {
       console.log("Please go here");
       console.log(res['user1']);
-      // console.log(res['token']);
       localStorage.setItem('token', res['token']);
       if(res['user2'] == false){
         this.router.navigate(['/sorry']);
@@ -50,15 +48,8 @@ myData: SafeHtml;
       },
       (err) => this.myData = err.error);
   }
-    //this.router.navigate(['/']);
   }
   newSubmit(form:NgForm){
-    // console.log("Attempting Login!");
-    // console.log(form.value)
-    // this.songService.postUser(form.value).subscribe((res) => {
-    //   console.log(res);
-    //   console.log("User saved!");
-    // });
     this.router.navigate(['/register']);
   }
 }

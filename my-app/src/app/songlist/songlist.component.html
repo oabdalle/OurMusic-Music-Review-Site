@@ -1,87 +1,29 @@
-<!-- 
-        <div>
-                <br>
-                <mat-card>
-                    <br><br>
-                    <mat-divider></mat-divider>
-                <table mat-table [dataSource]="songs">
-                    <ng-container matColumnDef="songTitle">
-                        <th mat-header-cell *matHeaderCellDef>Song Title</th>
-                        <td mat-cell  *matCellDef="let element"> {{element.songTitle}}</td>
-                    </ng-container>
-            
-                   <ng-container matColumnDef="artist">
-                        <th mat-header-cell *matHeaderCellDef>Artist</th>
-                        <td mat-cell  *matCellDef="let element"> {{element.artist}}</td>
-                    </ng-container>
-            
-                    <ng-container matColumnDef="album">
-                            <th mat-header-cell *matHeaderCellDef>Album</th>
-                            <td mat-cell  *matCellDef="let element"> {{element.album}}</td>
-                    </ng-container>
-            
-                    <ng-container matColumnDef="year">
-                            <th mat-header-cell *matHeaderCellDef>Year</th>
-                            <td mat-cell  *matCellDef="let element"> {{element.year}}</td>
-                    </ng-container>
-            
-                    <ng-container matColumnDef="comment">
-                            <th mat-header-cell *matHeaderCellDef>Comment</th>
-                            <td mat-cell  *matCellDef="let element"> {{element.comment}}</td>
-                    </ng-container>
-            
-                    <ng-container matColumnDef="genre">
-                                <th mat-header-cell *matHeaderCellDef>Genre</th>
-                                <td mat-cell  *matCellDef="let element"> {{element.genre}}</td>
-                    </ng-container>
-            
-                    <ng-container matColumnDef="avgRating">
-                            <th mat-header-cell *matHeaderCellDef>Average Rating</th>
-                            <td mat-cell  *matCellDef="let element"> {{element.avgRating}}</td>
-                    </ng-container>
-            
-                    <ng-container matColumnDef="numReviews">
-                            <th mat-header-cell *matHeaderCellDef>Number of Reviews</th>
-                            <td mat-cell  *matCellDef="let element"> {{element.numReviews}}</td>
-                    </ng-container>
-            
-                    <ng-container matColumnDef="numRating">
-                                <th mat-header-cell *matHeaderCellDef>Rating</th>
-                                <td mat-cell  *matCellDef="let element"> {{element.numRating}}</td>
-                    </ng-container>
-                    
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                 </table> 
-                </mat-card>
-            </div> -->
 
-            <table mat-table
-       [dataSource]="songs" multiTemplateDataRows
-       class="mat-elevation-z8">
+<body>
+        <div class="songlist">
+        View the songs critiqued by the community of OurMusic!
+        </div>
+        <div class ="mytable">
+            <table mat-table [dataSource]="songs" multiTemplateDataRows class="mat-elevation-z8">
   <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
-    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
-   
-    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+     <th mat-header-cell *matHeaderCellDef> <h1>Song Title</h1> </th> 
+    <td class="songname" mat-cell *matCellDef="let element"> <h1>{{element[column]}}</h1> </td>
   </ng-container>
 
-  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
   <ng-container matColumnDef="expandedDetail">
     <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
       <div class="example-element-detail"
            [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
         <div class="example-element-diagram">
-          <div class="example-element-position"> Title: {{element.songTitle}} </div>
-          <div class="example-element-symbol"> Artist: {{element.artist}} </div>
-          <div class="example-element-position">Album: {{element.album}} </div>
-          <div class="example-element-symbol"> Year: {{element.year}} </div>
-          <div class="example-element-position"> Comment: {{element.comment}} </div>
-          <div class="example-element-symbol"> Genre: {{element.genre}} </div>
-          <div class="example-element-position"> Averate Rating: {{element.avgRating}} </div>
-          <div class="example-element-symbol"> Number of Reviews: {{element.numReviews}} </div>
-          <div class="example-element-position"> Rating: {{element.numRating}} </div>
-          <!-- <div class="example-element-name"> {{element.name}} </div>
-          <div class="example-element-weight"> {{element.weight}} </div> -->
+          <div class="example-element-position"> <h1> Title: {{element.songTitle}} </h1> </div>
+          <div class="example-element-symbol"> <h1>Artist: {{element.artist}} </h1></div>
+          <div class="example-element-position"> <h1>Album: {{element.album}} </h1></div>
+          <div class="example-element-symbol"> <h1>Year: {{element.year}}</h1> </div>
+          <div class="example-element-position"><h1> Comment: {{element.comment}} </h1> </div>
+          <div class="example-element-symbol"> <h1>Genre: {{element.genre}}</h1> </div>
+          <div class="example-element-position"> <h1>Average Rating: {{element.avgRating}}</h1></div>
+          <div class="example-element-symbol"> <h1>Number of Reviews: {{element.numReviews}}</h1> </div>
+          <div class="example-element-position"><h1>Rating: {{element.numRating}}</h1> </div>
         </div>
         <div class="example-element-description">
 
@@ -98,3 +40,10 @@
   </tr>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>
+</div>
+<div class="logo">
+        <span>
+        OurMusic
+        </span>
+</div>
+</body>

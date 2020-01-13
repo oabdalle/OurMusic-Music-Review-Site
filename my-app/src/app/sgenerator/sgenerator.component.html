@@ -1,39 +1,34 @@
-<div>
+<body>
+<header>
+<div class ="wholeForm">
+    <h1>Enter song details </h1>
         <form #creview2Form = "ngForm" (ngSubmit) ="onSubmit(creview2Form)">
          
-            <div>
             <input type ="text" name="songTitle" ngModel  placeholder="Enter songTitle">
-            </div>
-            <div>
+            <br>
                 <input type ="text" name="artist" ngModel placeholder="Enter artist">
-            </div>
-            <div>
+            <br>
                 <input type ="text" name="album" ngModel placeholder="Enter album">
-            </div>
-            <div>
+            <br>
                  <input type ="text" name="year" ngModel placeholder="Enter year">
-            </div>
-            <div>
+            <br>
                 <input type ="text" name="comment" ngModel placeholder="Enter comment">
-            </div>
-            <div>
+            <br>
                 <input type ="text" name="genre" ngModel placeholder="Enter genre ">
-            </div>
-            <div>
+            <br>
                 <input type ="text" name="avgRating" ngModel placeholder="Enter avgRating">
-            </div>
-            <div>
+            <br>
                 <input type ="text" name="numReviews" ngModel placeholder="Enter numReviews">
-            </div>
-            <div>
+            <br>
                  <input type ="text" name="numRating" ngModel placeholder="Enter numRating">
-            </div>
-            <div>
+                 <br>
                 <button type ="submit" >Create</button>
-            </div>
         </form>
-<div>
+
     
 <div class="top">
-    <div [innerHtml]="myData"></div>
+   <h2><div [innerHtml]="myData"></div></h2>
  </div>
+ </div>
+ </header>
+</body>

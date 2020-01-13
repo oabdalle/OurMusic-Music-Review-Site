@@ -4,8 +4,7 @@ import {Song} from '../song.model';
 import {MatTableDataSource} from '@angular/material';
 import {Router} from '@angular/router';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-// import { SearchService } from './search.service';
- //import { Subject } from 'rxjs/Subject';
+
 @Component({
   selector: 'app-songlist',
   templateUrl: './songlist.component.html',

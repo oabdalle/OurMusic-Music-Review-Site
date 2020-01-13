@@ -15,6 +15,7 @@ flag: boolean;
 subFlag:boolean
 myData: SafeHtml;
 hbb:String;
+section: any = [];
   constructor(public songservice: SongService) { 
     this.flag = false;
     this.subFlag = true;
@@ -39,19 +40,18 @@ onSubmit(form:NgForm){
       console.log(res);
       });
   
-    //this.router.navigate(['/']);
     }
 }
 onSubmit2(reviewForm:NgForm, songForm:NgForm){
 
-  // if(!songForm.value.songTitle){
-  //   this.myData = "Please enter a song";
-  //   }
-  // else if(!songForm.value.artist){
-  //   this.myData = "Please enter an artist";
-  //   }
-  // else{
 
+  if(!songForm.value.songTitle){
+    this.myData = "Please enter a song";
+    }
+  else if(!songForm.value.artist){
+    this.myData = "Please enter an artist";
+    }
+  else{
     this.songservice.postSong(songForm.value).subscribe((res) => {
       this.hbb = res.toString();
       this.songservice.reviewUrl = "/"+this.hbb;
@@ -62,4 +62,5 @@ onSubmit2(reviewForm:NgForm, songForm:NgForm){
       
     }
 
+}
 }

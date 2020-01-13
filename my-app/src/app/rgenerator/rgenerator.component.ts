@@ -14,34 +14,28 @@ export class RgeneratorComponent implements OnInit {
   myData: SafeHtml;
   songs: Song[];
   reviews: Review[];
+  section: any = [];
   constructor(public songservice: SongService) { }
 
   ngOnInit() {
   }
   submitSearchUnique(event,formData){
     console.log(formData.value.songTitle);
-    //console.log(event);
    this.songservice.queryUrl = "?songTitle=" + formData.value.songTitle;
    this.songservice.getSearch().subscribe((data: Song[])=>{
            this.songs = data;
-           //console.log(this.songs);
     })
   }
   findReviews(stringy){
     console.log(stringy);
     this.songservice.reviewUrl = "/"+stringy;
-  //   this.songservice.getReviews().subscribe((data: Review[])=>{
-  //    this.reviews = data;
-  //    console.log(this.reviews);
-  //  })
 }
 
-   onSubmit(form:NgForm){
+   onSubmit(event, form:NgForm){
   
     this.songservice.postReview(form.value).subscribe((res) => {
       console.log(res);
     });
-    //this.router.navigate(['/']);
   }
 
 }

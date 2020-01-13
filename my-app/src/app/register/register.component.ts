@@ -27,6 +27,5 @@ export class RegisterComponent implements OnInit {
       localStorage.setItem('token', res.token);
     },
     (err) => this.myData = err.error);
-    //this.router.navigate(['/']);
   }
 }

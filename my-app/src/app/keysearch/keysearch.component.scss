@@ -1,0 +1,110 @@
+.tReviews{
+    background-color:black;
+    padding: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  border-collapse:separate;
+  border:solid black 1px;
+  border-radius:10px;
+  -moz-border-radius:6px;
+}
+body{
+    background-color: black;
+    margin: 0;
+   padding: 0;
+}
+.songlist{
+    color:white;
+    font-size: 20px;
+    position: absolute;
+    margin-top: 20px;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+.Songfinder{
+    background-color:black;
+    padding: 5px;
+  position: absolute;
+  top: 25%;
+  left: 50%; //43.13
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  border-collapse:separate;
+  border:solid black 1px;
+  border-radius:10px;
+  -moz-border-radius:6px;
+}
+
+td, th {
+    border-left:solid black 1px;
+    border-top:solid black 1px;
+}
+
+th {
+    background-color: black;
+    border: 2px solid white;
+    text-align: center;
+}
+
+td:first-child {
+border-left: none;
+}
+span{
+color: white;
+position: absolute;
+bottom: 0;
+left: 0;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-size: 60px;
+}
+h2{
+    color: white;
+    font-size: 11px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.accordion, .accordion1{
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 150px;
+    background: #fb2525;
+    color:white;
+    font-size: 14px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+body{
+background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(vinyl_turntable_2-wallpaper-2560x1600.jpg);
+height: 100%;
+background-repeat: no-repeat;
+background-position: cover;
+background-position: center;
+}
+h1{
+    color: white;
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    zoom: 90%;
+}
+input{
+    width: 10%;
+    border:none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    height: 20px;
+    font-size: 16px;
+    color: #fff;
+}
+.fin{
+    margin-left:40px;
+}
+.blackBox{
+    background-color: black;
+}

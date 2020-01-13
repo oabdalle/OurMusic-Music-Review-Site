@@ -1,79 +1,111 @@
-<form #song3Form='ngForm' (ngSubmit) ="submitSearchUnique($event, song3Form)">
-        <div>
-        <input type ="text" name="songTitle"placeholder="Enter Songtitle"  [(ngModel)] ='song' >
-        </div>
-        <div>
-            <button type ="submit" >Finished</button>
-        </div>
-</form>
 
-<form #artistForm='ngForm' (ngSubmit) ="submitSearchTwo($event, artistForm)">
-        <div>
-        <input type ="text" name="artist"placeholder="Enter artist"  [(ngModel)] ='song' >
-        </div>
-        <div>
-            <button type ="submit" >Finished</button>
-        </div>
-</form>
+<body>
+<div class="songlist">
+<h1>Select the way you want to find a song!</h1>
+</div>
+<button class="accordion" (click)="section['first'] = !section['first']">Song Name</button>
 
-<form #albumForm='ngForm' (ngSubmit) ="submitSearchThree($event, albumForm)">
-        <div>
-        <input type ="text" name="album"placeholder="Enter Album"  [(ngModel)] ='song' >
-        </div>
-        <div>
-            <button type ="submit" >Finished</button>
-        </div>
-</form> 
+<div class="panel" *ngIf="section['first']">
+        <form #song3Form='ngForm' (ngSubmit) ="submitSearchUnique($event, song3Form)">
+                <div>
+                <input type ="text" name="songTitle"placeholder="Enter Songtitle"  [(ngModel)] ='song' >
+                </div>
+                <div>
+                    <button class = "fin" type ="submit" >Search</button>
+                </div>
+        </form>  
+</div>
+<br>
+<button class="accordion" (click)="section['second'] = !section['second']">Artist</button>
+<div class="panel" *ngIf="section['second']">
+        <form #artistForm='ngForm' (ngSubmit) ="submitSearchTwo($event, artistForm)">
+                <div>
+                <input type ="text" name="artist"placeholder="Enter artist"  [(ngModel)] ='song' >
+                </div>
+                <div>
+                    <button class = "fin" type ="submit" >Search</button>
+                </div>
+        </form>
+</div>
+<br>
+<button class="accordion" (click)="section['third'] = !section['third']">Album</button>
+<div class="panel" *ngIf="section['third']">
+        <form #albumForm='ngForm' (ngSubmit) ="submitSearchThree($event, albumForm)">
+                <div>
+                <input type ="text" name="album"placeholder="Enter Album"  [(ngModel)] ='song' >
+                </div>
+                <div>
+                    <button class = "fin" type ="submit" >Search</button>
+                </div>
+        </form> 
+</div>
+<br>
+<button class="accordion1" (click)="section1['fourth'] = !section1['fourth']">Year</button>
+<div class="panel1" *ngIf="section1['fourth']">
+        <form #yearForm='ngForm' (ngSubmit) ="submitSearchFour($event, yearForm)">
+                <div>
+                <input type ="text" name="year"placeholder="Enter year"  [(ngModel)] ='song' >
+                </div>
+                <div>
+                    <button class = "fin" type ="submit" >Search</button>
+                </div>
+        </form> 
+</div>
+<br>
+<button class="accordion1" (click)="section1['fifth'] = !section1['fifth']">Comment</button>
+<div class="panel1" *ngIf="section1['fifth']">
+        <form #commentForm='ngForm' (ngSubmit) ="submitSearchFive($event, commentForm)">
+                <div>
+                <input type ="text" name="comment"placeholder="Enter comment"  [(ngModel)] ='song' >
+                </div>
+                <div>
+                    <button class = "fin" type ="submit" >Search</button>
+                </div>
+        </form> 
+</div>
+<br>
+<button class="accordion1" (click)="section1['sixth'] = !section1['sixth']">Genre</button>
+<div class="panel1" *ngIf="section1['sixth']">
+        <form #genreForm='ngForm' (ngSubmit) ="submitSearchSix($event, genreForm)">
+                <div>
+                <input type ="text" name="genre"placeholder="Enter genre" [(ngModel)] = "song" >
+                </div>
+                <div>
+                    <button class = "fin" type ="submit" >Search</button>
+                </div>
+        </form> 
+</div>
 
-<form #yearForm='ngForm' (ngSubmit) ="submitSearchFour($event, yearForm)">
-        <div>
-        <input type ="text" name="year"placeholder="Enter year"  [(ngModel)] ='song' >
-        </div>
-        <div>
-            <button type ="submit" >Finished</button>
-        </div>
-</form> 
-<form #commentForm='ngForm' (ngSubmit) ="submitSearchFive($event, commentForm)">
-        <div>
-        <input type ="text" name="comment"placeholder="Enter comment"  [(ngModel)] ='song' >
-        </div>
-        <div>
-            <button type ="submit" >Finished</button>
-        </div>
-</form> 
 
-<form #genreForm='ngForm' (ngSubmit) ="submitSearchSix($event, genreForm)">
-        <div>
-        <input type ="text" name="genre"placeholder="Enter genre"  [(ngModel)] ='song' >
-        </div>
-        <div>
-            <button type ="submit" >Finished</button>
-        </div>
-</form> 
+
+
+
+
 <div>
-        <table>
+        <div class="blackBox">
+        <table class ="Songfinder">
         <thead>
             <tr>
-            <th>SongTitle</th>
-            <th>artist</th>
-            <th>album</th>
-            <th>year</th>
-            <th>comment</th>
-            <th>genre</th>
-            <th>avgRating</th>
-            <th>numReviews</th>
-            <th>numRating</th>
+            <th><h2>Song Title</h2></th>
+            <th><h2>Artist</h2></th>
+            <th><h2>Album</h2></th>
+            <th><h2>Year</h2></th>
+            <th><h2>Comment</h2></th>
+            <th><h2>Genre</h2></th>
+            <th><h2>Average Rating</h2></th>
+            <th><h2>Number of Reviews</h2></th>
+            <th><h2>Rating</h2></th>
             </tr>
              <tr *ngFor="let bk of songs">
-            <td>{{bk.songTitle}}</td>
-            <td>{{bk.artist}}</td>
-            <td>{{bk.album}} </td>
-            <td>{{bk.year}}</td>
-            <td>{{bk.comment}}</td>
-            <td>{{bk.genre}}</td>
-            <td>{{bk.avgRating}} </td>
-            <td>{{bk.numReviews}}</td>
-            <td>{{bk.numRating}}</td> 
+            <td><h2>{{bk.songTitle}}</h2></td>
+            <td><h2>{{bk.artist}}</h2></td>
+            <td><h2>{{bk.album}} </h2></td>
+            <td><h2>{{bk.year}}</h2></td>
+            <td><h2>{{bk.comment}}</h2></td>
+            <td><h2>{{bk.genre}}</h2></td>
+            <td><h2>{{bk.avgRating}}</h2> </td>
+            <td><h2>{{bk.numReviews}}</h2></td>
+            <td><h2>{{bk.numRating}}</h2></td> 
             <button (click)="findReviews(bk._id)"> Get my reviews </button>
             <div class="top">
                     <div [innerHtml]="myData"></div>
@@ -94,28 +126,36 @@
         </table>    
         </div>
         <div>
-                <table>
+                <table class="tReviews">
                 <thead>
                     <tr>
-                    <th>Song Reviewd</th>
-                    <th>submittedBy</th>
-                    <th>submittedOn</th>
-                    <th>ratingForObject</th>
-                    <th>description</th>
-                    <th>avgRating</th>
-                    <th>numRating</th>
+                    <th><h2>Song Reviewed</h2></th>
+                    <th><h2>Submitted By</h2></th>
+                    <th><h2>Submitted On</h2></th>
+                    <th><h2>Rating</h2></th>
+                    <th><h2>Description</h2></th>
+                    <th><h2>Average Rating Given By User</h2></th>
+                    <th><h2>Number of Ratings Given</h2></th>
                     </tr>
                     <tr *ngFor="let bg of reviews">
-                            <td>{{bg.songReviewed}}</td>
-                            <td>{{bg.submittedBy}}</td>
-                            <td>{{bg.submittedOn}}</td>
-                            <td>{{bg.ratingForObject}}</td>
-                            <td>{{bg.description}}</td>
-                            <td>{{bg.avgRating}} </td>
-                            <td>{{bg.numRating}}</td>
+                            <td><h2>{{bg.songReviewed}}</h2></td>
+                            <td><h2>{{bg.submittedBy}}</h2></td>
+                            <td><h2>{{bg.submittedOn}}</h2></td>
+                            <td><h2>{{bg.ratingForObject}}</h2></td>
+                            <td><h2>{{bg.description}}</h2></td>
+                            <td><h2>{{bg.avgRating}}</h2></td>
+                            <td><h2>{{bg.numRating}}</h2></td>
                     </tr>  
                    
                 </thead>
             </table>    
     </div>
+    <div class="logo">
+        <span>
+        OurMusic
+        </span>
+        </div>
+</div>
+</body>
+
     
